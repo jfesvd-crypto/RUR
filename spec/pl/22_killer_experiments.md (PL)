@@ -1,0 +1,43 @@
+# Killer Eksperymenty (Testy Destrukcyjne)
+
+Celem tych eksperymentów jest szybkie obalenie kluczowych założeń protokołu RUR, zanim wejdziemy w kosztowną fazę pilotażu na żywo. Każdy eksperyment jest zaprojektowany, aby poddać stress-testowi konkretny komponent systemu.
+
+1.  **Test Uderzeniowy CF-6 (Manipulacja Truth Packet)**
+    * **Eksperyment**: Niezależnie oszacuj średni czas zatrudnienia/retencję dla próbki organizacji i porównaj z ich zadeklarowanym `Org Truth Packet`.
+    * **Kryterium Porażki**: Rozbieżność `>20%` w `>2` organizacjach uruchamia pauzę, wskazując na potrzebę silniejszej weryfikacji.
+
+2.  **Status w Pasie Relacyjnym**
+    * **Eksperyment**: W danych syntetycznych, "zamaskuj" nazwy marek i sprawdź, czy waga Pasa R wciąż bardziej koreluje z elitarnymi sygnałami niż z realną jakością wkładu.
+    * **Kryterium Porażki**: Istotna korelacja z prestiżem marki przy braku wzrostu jakości shortlisty.
+
+3.  **Prawo Goodharta w Rytuałach**
+    * **Eksperyment**: Jednej kohorcie testowej przekaż przykładowe "dobre" odpowiedzi do rytuałów. Porównaj entropię semantyczną ich odpowiedzi i oceny "blind" z grupą kontrolną.
+    * **Kryterium Porażki**: Spadek różnorodności odpowiedzi bez wzrostu ich jakości, co wskazuje na "granie" pod format.
+
+4.  **Dyskryminacja przez Needs Capsule (CF-7)**
+    * **Eksperyment**: Przeprowadź analizę regresji, aby sprawdzić korelacje między wskaźnikiem odrzuceń a konkretnymi `wymaganiami nienegocjowalnymi` (np. praca zdalna), kontrolując kwalifikacje.
+    * **Kryterium Porażki**: Każda znacząca, niewyjaśniona korelacja uruchamia audyt.
+
+5.  **Asymetria Weta (CF-8)**
+    * **Eksperyment**: Porównaj rozkład decyzji o wecie z wynikami `Raportów Kompatybilności`.
+    * **Kryterium Porażki**: Silnie przechylony rozkład weta po jednej ze stron, który nie jest uzasadniony flagami "Konflikt" w raportach.
+
+6.  **Test A/A dla VRF i Integralności Paragonu**
+    * **Eksperyment**: Uruchom dwa identyczne (A/A) losowania na tej samej puli kandydatów. Zweryfikuj wygenerowane paragony za pomocą zewnętrznego skryptu.
+    * **Kryterium Porażki**: Statystycznie istotne odchylenie w wynikach między losowaniami lub jakikolwiek błąd walidacji paragonu.
+
+7.  **Nie-gorszy Czas do Oferty (Non-inferiority)**
+    * **Eksperyment**: Porównaj Czas do Oferty (TTH) w symulacji RUR z grupą kontrolną, przy predefiniowanym marginesie nie-gorszości `+25%`.
+    * **Kryterium Porażki**: TTH dłuższy niż margines `+25%` bez znaczącej kompensacji we wzroście sprawiedliwości lub jakości.
+
+8.  **Tarcie dla No-show/Spamu**
+    * **Eksperyment**: Porównaj wskaźniki aplikacji typu "spray-and-pray" oraz niepojawień się na rozmowach między grupą RUR a kontrolną.
+    * **Kryterium Porażki**: Brak osiągnięcia co najmniej `30%` poprawy w tych metrykach.
+
+9.  **Ataki Sybil / Farmy Kandydatów**
+    * **Eksperyment**: W symulacji, spróbuj obejść limity aplikacji za pomocą wielu kont przeciwko zabezpieczeniom Passkey + unikalny token.
+    * **Kryterium Porażki**: Udane obejście wskazuje na potrzebę silniejszego mechanizmu proof-of-personhood.
+
+10. **Granie Klasyfikacją Ról**
+    * **Eksperyment**: Sprawdź, czy organizacje mogą zredukować negatywne metryki w swoim `Truth Packet` przez strategiczną zmianę nazw lub klasyfikacji ról.
+    * **Kryterium Porażki**: Możliwość znaczącego zniekształcenia wskazuje na potrzebę standaryzowanego słownika ról.

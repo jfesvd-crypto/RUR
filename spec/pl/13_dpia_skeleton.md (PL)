@@ -1,0 +1,37 @@
+# DPIA — Ocena Skutków dla Ochrony Danych (Szkielet + Checklista)
+
+### **1. Opis Przetwarzania**
+* **Cel**: Tworzenie shortlisty i preselekcja kandydatów zgodnie z protokołem RUR 1.0.
+* **Kategorie Danych**: Zagregowane metryki z `Org Truth Packet`, wymagania nienegocjowalne z `Needs Capsule`, logi VRF, metadane procesu. Domyślnie nie są przetwarzane żadne wrażliwe dane osobowe.
+* **Odbiorcy**: Uczestniczące organizacje (ograniczone, spseudonimizowane dane); Panel Etyczny (tylko dane zagregowane).
+
+### **2. Podstawa Prawna**
+* Przetwarzanie opiera się na wykonaniu umowy (art. 6 ust. 1 lit. b RODO) z uczestnikami oraz na prawnie uzasadnionym interesie (art. 6 ust. 1 lit. f RODO) tworzenia sprawiedliwego i wydajnego rynku rekrutacji.
+* Informacja o logice zautomatyzowanego podejmowania decyzji (losowanie VRF, alokacja do pasów) jest dostarczana wszystkim uczestnikom.
+
+### **3. Minimalizacja i Retencja**
+* Zbieranie danych jest zminimalizowane do tego, co absolutnie konieczne. Dane są agregowane w "przedziały" (buckets) w celu ochrony prywatności.
+* Retencja danych jest ustalona na 90 dni, po czym wszystkie dane osobowe są usuwane lub w pełni anonimizowane.
+* W całym protokole stosowana jest zasada progresywnego ujawniania.
+
+### **4. Ryzyka i Środki Mitygujące**
+* **Ryzyko Dyskryminacji**: Mitygowane przez zasady anty-bias, audyty (CF-7), "zaślepienie" systemu na cechy chronione oraz zapewnienie możliwości odwołania do człowieka.
+* **Ryzyko Manipulacji `Org Truth Packet`**: Mitygowane przez audyty (CF-6), podpisy cyfrowe (SD-JWT/BBS+) oraz konsekwencje reputacyjne.
+* **Ryzyko Naruszenia Danych**: Mitygowane przez szyfrowanie end-to-end, kontrolę dostępu i inne środki bezpieczeństwa opisane w `15_security_retention.md`.
+
+### **5. Decyzja**
+* [ ] Akceptacja ryzyka rezydualnego
+* [ ] Wymagana mitygacja (opisać)
+* [ ] Konsultacja z Urzędem Ochrony Danych Osobowych (jeśli ryzyko pozostaje wysokie)
+
+---
+### **Checklista DPIA**
+- [ ] Zidentyfikowano cele i dane (zastosowano minimalizację).
+- [ ] Określono podstawę prawną i przekazano informację o logice działania.
+- [ ] Zaprojektowano 90-dniową politykę retencji i proces usuwania/anonimizacji.
+- [ ] Wdrożono środki techniczne (szyfrowanie, kontrola dostępu, logi).
+- [ ] Wdrożono środki organizacyjne (szkolenia, procedury odwołań).
+- [ ] Przeprowadzono ocenę ryzyk (dyskryminacja, manipulacja danymi, prywatność).
+- [ ] Zaplanowano audyty (CF-6, CF-7) i Panel Etyczny.
+- [ ] Udokumentowano decyzję i właściciela ryzyka.
+- [ ] Zapewniono mechanizmy realizacji praw osób (dostęp, sprostowanie, usunięcie).

@@ -1,0 +1,20 @@
+# Zarządzanie: Panel Etyczny, Procedura Pauzy i Rejestr Zmian
+
+### **Panel Etyczny**
+* **Skład**: Ustanawia się panel składający się z co najmniej 3 osób, niezależnych od organizacji uczestniczących w pilotażu. Jego członkowie powinni reprezentować różnorodne perspektywy (np. techniczną, etyczną, HR, rzecznictwo kandydatów).
+* **Mandat**: Głównym mandatem Panelu Etycznego jest nadzór nad integralnością pilotażu oraz posiadanie uprawnień do jego wstrzymania ("pauzy"). Panel dokonuje przeglądu raportów z audytów i podejmuje ostateczną decyzję, czy "czerwona flaga" z Protokołu Falsyfikacji wymaga tymczasowego wstrzymania pilota w celu re-kalibracji.
+
+### **Procedura Pauzy i Re-kalibracji**
+* **Wyzwalacze**: Pauza w pilotażu jest uruchamiana, gdy krytyczna "czerwona flaga" z `Protokołu Falsyfikacji` zostanie potwierdzona (np. CF-6: manipulacja danymi w `Org Truth Packet`).
+* **Działanie**: Po wstrzymaniu, wszystkie aktywne procesy rekrutacyjne używające protokołu RUR są tymczasowo zatrzymywane. Nie można rozpoczynać nowych procesów.
+* **Komunikacja**: Publiczne ogłoszenie jest natychmiast publikowane w rejestrze zmian projektu, wyjaśniając, która czerwona flaga została uruchomiona i jakie działania naprawcze są rozważane. Zapewnia to pełną transparentność.
+* **Rozwiązanie**: Zespół projektowy proponuje rozwiązanie (np. silniejsze mechanizmy weryfikacji, zmiany w parametrach protokołu). Panel Etyczny musi zatwierdzić proponowane zmiany, zanim pilotaż zostanie wznowiony.
+
+### **Publiczny Rejestr Zmian (Changelog)**
+* Publicznie dostępny, wersjonowany rejestr zmian **MUSI** być prowadzony przez cały czas trwania pilotażu.
+* **MUSI** on rejestrować wszystkie istotne zdarzenia, w tym:
+    * Daty rozpoczęcia i zakończenia pilotażu.
+    * Wszelkie zmiany w zasadach lub parametrach protokołu.
+    * Wszystkie uruchomione "czerwone flagi" z Protokołu Falsyfikacji.
+    * Wszystkie decyzje podjęte przez Panel Etyczny, w tym zdarzenia pauzy i wznowienia.
+* Celem rejestru zmian jest zapewnienie kompletnej, audytowalnej historii ewolucji projektu i decyzji zarządczych.

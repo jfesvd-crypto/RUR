@@ -1,0 +1,45 @@
+name: Build Project PDFs
+
+on:
+  # Uruchamia workflow przy każdym pushu do gałęzi 'main'
+  push:
+    branches: [ "main" ]
+  # Umożliwia ręczne uruchomienie workflow z poziomu zakładki Actions
+  workflow_dispatch:
+
+jobs:
+  build-pdfs:
+    runs-on: ubuntu-latest
+    
+    steps:
+      # Krok 1: Pobranie kodu repozytorium
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      # Krok 2: Instalacja Pandoc i LaTeX (narzędzia do tworzenia PDF)
+      - name: Set up Pandoc
+        uses: pandoc/setup-pandoc@v1
+
+      # Krok 3: Generowanie angielskiego PDF
+      - name: Build English PDF
+        run: |
+          pandoc spec/en/*.md philosophy/en/*.md -o RUR_Project_Book_v1_en.pdf --toc --pdf-engine=xelatex
+
+      # Krok 4: Generowanie polskiego PDF
+      - name: Build Polish PDF
+        run: |
+          pandoc spec/pl/*.md philosophy/pl/*.md -o RUR_Project_Book_v1_pl.pdf --toc --pdf-engine=xelatex
+          
+      # Krok 5: Udostępnienie gotowych plików PDF jako "artefakty"
+      - name: Upload English PDF Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: RUR-Project-Book-EN
+          path: RUR_Project_Book_v1_en.pdf
+
+      - name: Upload Polish PDF Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: RUR-Project-Book-PL
+          path: RUR_Project_Book_v1_pl.pdf
+          

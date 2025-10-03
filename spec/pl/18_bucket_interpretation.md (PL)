@@ -1,0 +1,16 @@
+# Jak interpretować bucket’y (1-pager)
+
+### **Cel**
+"Przedziały" (bucket), używane w `Org Truth Packet`, są zaprojektowane, aby zrównoważyć dwie konkurujące potrzeby: dostarczenie znaczącego **sygnału** o kulturze pracy przy jednoczesnej ochronie **prywatności** jednostek i wrażliwości handlowej precyzyjnych danych. Nie służą one do "ukrywania" złych wyników, lecz do przedstawienia ich w uczciwym kontekście.
+
+### **Wskazówki do Interpretacji**
+
+* **Wysoka Rotacja (`>20%`)**: Może to być czerwona flaga wskazująca na niestabilność. Należy jednak wziąć pod uwagę kontekst. Organizacja powinna być gotowa wyjaśnić, czy jest to spowodowane szybkim skalowaniem, pracą sezonową, czy niedawną restrukturyzacją.
+
+* **Wysokie Nadgodziny (`>10h`)**: Sygnalizuje wymagające środowisko pracy. Status "Płatne" jest tutaj kluczowy. Kandydaci powinni rozważyć, czy jest to zgodne z ich potrzebami dotyczącymi równowagi między życiem zawodowym a prywatnym. Organizacje powinny być transparentne, czy jest to tymczasowy "crunch", czy stała cecha kultury.
+
+* **Niski Średni Czas Zatrudnienia (`<6 mies.`)**: Bardzo niski średni czas zatrudnienia w konkretnej roli to znacząca czerwona flaga, sugerująca potencjalne niedopasowanie między opisem roli a jej rzeczywistością lub trudne środowisko pracy. Ta metryka wymaga od organizacji starannego wyjaśnienia.
+
+* **Niska Retencja po 90 dniach (`<70%`)**: Może wskazywać na wadliwy proces onboardingu lub na to, że nowi pracownicy szybko orientują się, że rola nie jest tym, co obiecywano. To silny wskaźnik potencjalnych problemów w fazie bezpośrednio po zatrudnieniu.
+
+* **Tryb Pracy**: Bądź precyzyjny. Jeśli wybrano `Hybrydowy`, przedział `dni w biurze` pokazuje realne oczekiwania. "2-3 dni" to zupełnie inne zobowiązanie niż "1 dzień".

@@ -1,0 +1,53 @@
+name: Organize RUR Documents and Fix Links
+
+on:
+  workflow_dispatch:
+
+jobs:
+  organize-and-fix:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Reorganize files and fix links
+        run: |
+          # 1. Utwórz nowe, docelowe katalogi
+          mkdir -p docs/en docs/pl
+          
+          # 2. Stwórz brakujące pliki filozofii (jeśli ich nie ma)
+          # (Poniżej skrócona wersja dla czytelności)
+          echo "# Ecosystem of Coexistence" > docs/en/philosophy_01_coexistence.md
+          echo "# Ekosystem Współistnienia" > docs/pl/philosophy_01_coexistence.md
+          echo "# Permanent Liminality" > docs/en/philosophy_02_liminality.md
+          echo "# Permanentna Liminalność" > docs/pl/philosophy_02_liminality.md
+
+          # 3. Przenieś istniejące pliki specyfikacji (jeśli istnieją)
+          if [ -d "spec" ]; then
+            mv spec/en/*.md docs/en/
+            mv spec/pl/*.md docs/pl/
+            rm -rf spec
+          fi
+          
+          # 4. Automatycznie popraw linki w plikach README
+          # Używamy sed do znalezienia i zamiany 'spec/en/' na 'docs/en/' oraz 'spec/pl/' na 'docs/pl/'
+          sed -i 's|spec/en/|docs/en/|g' README.md
+          sed -i 's|spec/pl/|docs/pl/|g' README.pl.md
+          
+          echo "Pliki zostały przeniesione i linki zaktualizowane."
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add .
+          # Sprawdź, czy są jakieś zmiany do zapisania
+          if ! git diff-index --quiet HEAD; then
+            git commit -m "chore: Reorganize files to docs/ and fix links"
+            git push
+          else
+            echo "No changes to commit."
+          fi

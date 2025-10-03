@@ -1,0 +1,43 @@
+# Killer Experiments (Destructive Tests)
+
+The purpose of these experiments is to rapidly falsify the core assumptions of the RUR protocol before a costly live pilot. Each experiment is designed to stress-test a specific component of the system.
+
+1.  **CF-6 Punch Test (Truth Packet Manipulation)**
+    * **Experiment**: Independently estimate tenure/retention for a sample of organizations and compare with their declared `Org Truth Packet`.
+    * **Failure Criterion**: A discrepancy of `>20%` in `>2` organizations triggers a pause, indicating the need for stronger verification.
+
+2.  **Status in the Relational Lane**
+    * **Experiment**: In synthetic data, mask brand names and check if the Relational Lane's weight still correlates more with elite signals than with the quality of contributions.
+    * **Failure Criterion**: A significant correlation with brand prestige without a corresponding increase in shortlist quality.
+
+3.  **Goodhart's Law in Rituals**
+    * **Experiment**: Provide one cohort of test subjects with "good" example answers for the rituals. Compare the semantic entropy of their responses and blind quality scores against a control group.
+    * **Failure Criterion**: A decrease in response diversity without an increase in quality, indicating participants are "gaming" the format.
+
+4.  **Discrimination via Needs Capsule (CF-7)**
+    * **Experiment**: Run a regression analysis to check for correlations between rejection rates and specific `non-negotiables` (e.g., remote work), controlling for qualifications.
+    * **Failure Criterion**: Any significant, unexplained correlation triggers an audit.
+
+5.  **Veto Asymmetry (CF-8)**
+    * **Experiment**: Compare the distribution of veto decisions against the outcomes of the `Compatibility Reports`.
+    * **Failure Criterion**: A heavily skewed veto distribution by one party that is not explained by "Conflict" flags in the reports.
+
+6.  **A/A VRF & Receipt Integrity**
+    * **Experiment**: Run two identical (A/A) lottery draws on the same pool of candidates. Verify the generated receipts with an external script.
+    * **Failure Criterion**: A statistically significant deviation in outcomes between the two runs or any receipt validation errors.
+
+7.  **Non-inferiority of Time-to-Offer**
+    * **Experiment**: Compare the Time-to-Offer (TTH) in the RUR simulation against the control group, with a pre-defined non-inferiority margin of `+25%`.
+    * **Failure Criterion**: TTH is longer than the `+25%` margin without a significant compensatory gain in fairness or quality.
+
+8.  **No-show/Spam Friction**
+    * **Experiment**: Compare the rates of "spray-and-pray" applications and no-shows between the RUR and control groups.
+    * **Failure Criterion**: Failure to achieve at least a `30%` improvement in these metrics.
+
+9.  **Sybil/Candidate Farms**
+    * **Experiment**: In a simulation, attempt to bypass application limits using multi-accounting against the Passkey + unique token defense.
+    * **Failure Criterion**: A successful bypass indicates the need for a stronger proof-of-personhood mechanism.
+
+10. **Gaming Role Classification**
+    * **Experiment**: Check if organizations can reduce negative metrics in their `Truth Packet` by strategically re-naming or re-classifying roles.
+    * **Failure Criterion**: A significant distortion is possible, indicating the need for a standardized role dictionary.

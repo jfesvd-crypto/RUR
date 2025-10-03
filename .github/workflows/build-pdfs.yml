@@ -14,7 +14,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Set up Pandoc
-        # ZMIANA: Zaktualizowano wersję z v1 na v4
+        # Używamy poprawnej, działającej wersji v4
         uses: pandoc/setup-pandoc@v4
 
       - name: Build English PDF

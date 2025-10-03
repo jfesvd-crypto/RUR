@@ -1,0 +1,27 @@
+# Roadmap RUR 1.0 → RUR 2.0 (Symphony)
+
+This document outlines the evolutionary path of the RUR protocol, from the initial pilot focused on minimal symmetry to the long-term vision of a full symbiosis protocol.
+
+### **Stage 1 — RUR 1.0: Minimal Symmetry (0–6 Months)**
+* **Goal**: To test, validate, and falsify the core assumptions of the RUR protocol in a controlled pilot (`Latarnia-EC01`).
+* **Key Activities**:
+    * Implement the core specification (Truth Packet, Needs Capsule, 3-Lane Allocation, etc.).
+    * Conduct the `Human-in-the-Loop Digital Twin` experiment.
+    * Run the live pilot with a small cohort of organizations and candidates.
+    * Actively monitor the system using the `Falsification Protocol` and the Ethical Panel.
+    * Prepare all necessary compliance documentation (DPIA, AI Act readiness).
+* **Primary Outcome**: A validated (or invalidated) protocol with a rich dataset on its real-world performance and psychological impact.
+
+### **Stage 2 — RUR 2.0: Full Symbiosis ("Symphony") (6–18+ Months)**
+* **Goal**: To build upon the success of RUR 1.0 and implement the full vision of a symbiotic protocol for agent-to-agent negotiation.
+* **Key Features**:
+    * **Agent-to-Agent Due Diligence**: Fiduciary AI agent ecosystems, representing both parties, conduct mutual, in-depth compatibility analysis.
+    * **ZK Attestations**: Move from simple attestations to full zero-knowledge proofs for `Org Truth Packet` and candidate qualifications, maximizing privacy and verifiability.
+    * **Automated Negotiation**: Agents negotiate preliminary terms and conditions *before* a human conversation takes place, based on their principals' declared boundaries.
+* **Primary Outcome**: A sandbox environment and, eventually, a second-generation pilot demonstrating a recruitment process based on mutual, automated, and truthful due diligence.
+
+### **Transition Criteria**
+The project will move from Stage 1 to Stage 2 only when the following criteria are met:
+* The fairness and trust metrics from the RUR 1.0 pilot are stable and show a significant improvement over the baseline.
+* No critical "red flags" from the Falsification Protocol remain unresolved.
+* A group of early-adopter partners expresses clear readiness and commitment to participate in a more advanced RUR 2.0 sandbox.

@@ -1,0 +1,20 @@
+# Zasady: Rytuały Powolności
+
+### **Definicja**
+Rytuały Powolności to obowiązkowa, asynchroniczna faza wymiany, która ma miejsce po zatwierdzeniu shortlisty i zamknięciu okna na wzajemne weto. Celem jest zastąpienie pełnej presji, performatywnej natury pierwszej rozmowy kwalifikacyjnej przestrzenią na przemyślaną, celową interakcję.
+
+### **Rotacja Formatów**
+Aby zapobiec powstaniu jednej, optymalizowalnej "meta-gry", konkretny format rytuału jest **rotowany**. Dla każdej roli system losowo wybiera **2 z puli 5** predefiniowanych formatów. Gwarantuje to, że uczestnicy muszą zaangażować się w istotę zadania, zamiast polegać na gotowych odpowiedziach.
+
+Pula formatów zawiera:
+1.  **Mapowanie Dowodów 3x3**: Ustrukturyzowane zadanie, w którym kandydat mapuje swoje kluczowe doświadczenia na 3 najważniejsze potrzeby roli.
+2.  **"Historia → Sygnał" + Predykcja**: Zadanie obejmujące quiz na temat `Org Truth Packet` i refleksję nad tym, gdzie kandydat może wnieść największą wartość.
+3.  **Notatnik Dowodów + Refleksja**: Zadanie skoncentrowane na głębokiej analizie jednego fragmentu pracy, oddzieleniu "sygnału" od "szumu", z obowiązkowym czasem na refleksję.
+4.  **Mikro Code-Review z Kompromisem**: Zadanie scenariuszowe, w którym kandydat recenzuje fragment pseudo-kodu i uzasadnia swoje decyzje w oparciu o `Org Truth Packet`.
+5.  **Porażka → Lekcja → Standard**: Refleksyjne zadanie, w którym kandydat opisuje przeszłą porażkę techniczną i systemową lekcję, jaką z niej wyciągnął.
+
+### **Parametry**
+* **Okno Czasowe**: Wymiana odbywa się w stałym oknie czasowym (`24h` dla trybu FAST, `48h` dla trybu FULL), aby umożliwić odpowiedzi asynchroniczne bez tworzenia niekończących się opóźnień.
+* **Limit Wiadomości**: Wymiana jest ściśle ograniczona (np. do maksymalnie 3 wiadomości/wymian), aby zachęcić do zwięzłości i merytoryczności.
+* **Jawna Deklaracja Asysty AI**: Kandydaci mogą i są zachęcani do korzystania z asysty AI. Dostępny jest checkbox do zadeklarowania jej użycia, a deklaracja ta nie pociąga za sobą żadnej kary. Nacisk kładziony jest na jakość końcowego wyniku, a nie na jego pochodzenie.
+* **Dostępność**: Protokół **MUSI** zapewniać równoważne alternatywne modalności (tekst, audio, wideo) dla wszystkich rytuałów, aby zapewnić pełną dostępność.

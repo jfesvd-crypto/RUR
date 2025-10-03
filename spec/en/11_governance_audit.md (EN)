@@ -1,0 +1,20 @@
+# Governance: Ethical Panel, Pause Procedure, and Changelog
+
+### **Ethical Panel**
+* **Composition**: A panel of at least 3 individuals, independent of the organizations participating in the pilot, is established. Its members should represent diverse perspectives (e.g., technical, ethical, HR, candidate advocacy).
+* **Mandate**: The primary mandate of the Ethical Panel is to oversee the integrity of the pilot and to hold the "pause" authority. It reviews audit reports and makes the final decision on whether a Falsification Protocol "red flag" requires a temporary halt of the pilot for re-calibration.
+
+### **Pause and Re-calibration Procedure**
+* **Triggers**: A pilot pause is triggered when a critical "red flag" from the `Falsification Protocol` is confirmed (e.g., CF-6: manipulation of `Org Truth Packet` data).
+* **Action**: Upon a pause, all active recruitment processes using the RUR protocol are temporarily halted. No new processes can be started.
+* **Communication**: A public notice is immediately posted in the project's changelog, explaining which red flag was triggered and what corrective actions are being considered. This ensures full transparency.
+* **Resolution**: The project team proposes a solution (e.g., stronger verification mechanisms, changes to the protocol's parameters). The Ethical Panel must approve the proposed changes before the pilot can be resumed.
+
+### **Public Changelog**
+* A publicly accessible, version-controlled changelog **MUST** be maintained for the duration of the pilot.
+* It **MUST** record all significant events, including:
+    * The start and end dates of the pilot.
+    * Any changes to the protocol's rules or parameters.
+    * All triggered "red flags" from the Falsification Protocol.
+    * All decisions made by the Ethical Panel, including pause and resume events.
+* The purpose of the changelog is to provide a complete, auditable history of the project's evolution and governance decisions.

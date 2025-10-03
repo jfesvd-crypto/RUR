@@ -1,0 +1,28 @@
+# Specyfikacja: Raport Kompatybilności (Light)
+
+### **Definicja**
+Raport Kompatybilności to lekkie, dwukierunkowe podsumowanie prezentowane zarówno kandydatowi, jak i organizacji po wstępnej, zautomatyzowanej fazie dopasowania. Jego celem nie jest wystawienie "oceny" czy "rankingu", ale stworzenie transparentnej podstawy do decyzji o `Wzajemnym Wecie`. To mapa zgodności i potencjalnych tarć.
+
+### **Osie Porównania**
+Raport jest zbudowany wokół kilku kluczowych, niedyskryminujących osi, pochodzących z `Org Truth Packet` i `Needs Capsule`:
+
+1.  **Rytm Pracy**: Porównuje preferencje kandydata dotyczące `Trybu Pracy` (zdalny/hybrydowy/stacjonarny) i `Elastyczności Godzin` z zadeklarowaną przez organizację rzeczywistością.
+2.  **Autonomia i Rozwój**: Porównuje preferencje kandydata dotyczące `Mentoringu` i `Tempa Rozwoju` z sygnałami z danych organizacji (np. `Średni czas zatrudnienia w roli`).
+3.  **Komunikacja**: Porównuje preferowany przez kandydata `Styl Komunikacji` (asynchroniczny/synchroniczny) z trybem pracy organizacji.
+4.  **Wartości (Proxy)**: Porównuje sygnały dotyczące tego, co ceni organizacja (np. wysokie `Nadgodziny` mogą sygnalizować "kulturę zgiełku") z nienegocjowalnymi granicami kandydata.
+5.  **Rytuały Zespołowe**: Pole zarezerwowane na przyszłe wersje, w którym będzie można zadeklarować specyficzne dla zespołu praktyki.
+
+### **Format Wynikowy**
+Dla każdej osi, raport podaje prosty, nienumeryczny status:
+
+* **Zgodne**: Wskazuje na silną kompatybilność.
+* **Częściowo zgodne**: Wskazuje na pole do dyskusji lub kompromisu.
+* **Konflikt**: Wskazuje na fundamentalne niedopasowanie w oparciu o wymaganie nienegocjowalne.
+
+Raport podkreśla również **1-2 kluczowe punkty potencjalnego tarcia**, do rozważenia przez obie strony.
+
+### **Przepływ Procesu**
+1.  Po zakończeniu alokacji 3-pasowej, raport jest generowany dla każdego zakwalifikowanego kandydata.
+2.  Zarówno kandydat, jak i organizacja otrzymują swoje odpowiednie, symetrycznie zaprezentowane raporty.
+3.  Otwiera się okno na **`Wzajemne Weto`**. Każda ze stron może anonimowo i bez kary reputacyjnej zrezygnować z kontynuacji. Druga strona jest jedynie informowana, że "wykryto niekompatybilność", bez wskazania, kto podjął decyzję.
+4.  Jeśli żadna ze stron nie skorzysta z weta, proces przechodzi do `Rytuału Powolności`.

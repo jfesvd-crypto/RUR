@@ -1,0 +1,25 @@
+# Specyfikacja: Org Truth Packet (Metryki i Podpisy)
+
+### **Definicja**
+Org Truth Packet (Pakiet Prawdy Organizacji) to obowiązkowy, weryfikowalny zbiór zagregowanych metryk, które organizacja musi ujawnić dla konkretnej roli. Jego celem jest dostarczenie kandydatom realistycznego, opartego na danych obrazu kultury pracy, umożliwiając bardziej symetryczny proces decyzyjny.
+
+### **Wymagane Metryki (v1.0)**
+Dane muszą być przedstawione w predefiniowanych "przedziałach" (bucket), aby zrównoważyć czytelność sygnału z ochroną prywatności.
+
+1.  **Rotacja w zespole/dziale (12 miesięcy)**: `<10%` / `10-20%` / `>20%`
+2.  **Mediana nadgodzin w tygodniu (+ status płatności)**: `0-2h` / `2-5h` / `5-10h` / `>10h`. Należy wskazać, czy nadgodziny są płatne.
+3.  **Tryb pracy**: `Zdalny` / `Hybrydowy` (z określeniem liczby dni w biurze: `1`, `2-3`, `≥4`) / `Stacjonarny`.
+4.  **Średni czas zatrudnienia na tej konkretnej roli (tenure)**: `<6 mies.` / `6-12 mies.` / `12-24 mies.` / `>24 mies.`.
+5.  **Wskaźnik retencji po 90 dniach dla nowych osób w tej roli**: `<70%` / `70-85%` / `>85%`.
+
+### **Format i Podpis**
+* **Format**: Dane powinny być prezentowane jako zagregowane "przedziały". Surowe dane źródłowe nie są udostępniane.
+* **Podpis**: Pakiet musi być podpisany cyfrowo w formacie wspierającym selektywne ujawnianie (np. SD-JWT, BBS+).
+* **Oświadczenie**: Podpisowi musi towarzyszyć formalne oświadczenie o rzetelności oraz zgoda na współpracę w ramach losowych audytów.
+
+### **Mechanizmy Anty-manipulacyjne i Weryfikacja**
+Integralność protokołu opiera się na prawdziwości danych w Org Truth Packet. Wdrożone są następujące mechanizmy zapobiegające manipulacji:
+
+* **Słownik Ról**: Aby zapobiegać "graniu" systemem poprzez tworzenie sztucznie wąskich ról, system powinien używać standaryzowanego słownika ról i walidacji semantycznej.
+* **Porównanie Między Rolami**: System powinien pozwalać na porównanie Pakietu Prawdy danej roli ze średnią dla całej organizacji, aby wychwycić anomalie.
+* **Losowe Audyty (CF-6)**: Kluczowy element Protokołu Falsyfikacji. Wybrana próbka organizacji zostanie poddana chroniącemu prywatność audytowi, w którym zadeklarowane przedziały zostaną porównane z weryfikowalnymi danymi wtórnymi. Znacząca rozbieżność (`>20%` w `>2` organizacjach) uruchamia pauzę w całym pilotażu.

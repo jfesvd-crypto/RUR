@@ -1,0 +1,34 @@
+# Specyfikacja Protokołu RUR 1.0 (Niezmienniki)
+
+### **Zakres**
+Protokół ten zarządza fazą tworzenia shortlisty i preselekcji w procesie rekrutacyjnym, kończąc się na zaproszeniu na synchroniczną rozmowę.
+
+### **Niezmienniki (MUST)**
+Protokół jest zdefiniowany przez następujące obowiązkowe, nienegocjowalne komponenty:
+
+1.  **Symetryczne Ujawnienie**:
+    * Organizacje **MUSZĄ** dostarczyć kompletny i rzetelny `Org Truth Packet`.
+    * Kandydaci **MUSZĄ** dostarczyć swoje nienegocjowalne wymagania w `Needs Capsule`.
+2.  **Sprawiedliwa Alokacja**:
+    * Proces tworzenia shortlisty **MUSI** być przeprowadzony z użyciem systemu alokacji 3-pasowej (Losowy, Relacyjny, Wyrównawczy).
+    * Losowy komponent alokacji **MUSI** używać Weryfikowalnej Funkcji Losowej (VRF) z publicznym beaconem, a "paragon" **MUSI** zostać wydany każdemu kandydatowi.
+3.  **Wzajemna Sprawczość**:
+    * Obu stronom **MUSI** zostać przedstawiony `Raport Kompatybilności`, zanim zaproponowana zostanie rozmowa synchroniczna.
+    * Obie strony **MUSZĄ** mieć równe i wolne od konsekwencji reputacyjnych prawo do `Wzajemnego Weta` po zapoznaniu się z raportem.
+4.  **Proces Refleksyjny**:
+    * Proces **MUSI** zawierać `Rytuał Powolności` (wymianę asynchroniczną) o minimalnym czasie trwania (np. 24h/48h) i limicie wiadomości (np. 3 wymiany).
+    * Format rytuału **MUSI** być rotowany, aby zapobiegać optymalizacji opartej na skryptach.
+
+### **Zakazy (MUST NOT)**
+
+1.  Protokół **NIE MOŻE** używać cech chronionych (wiek, płeć itp.) ani danych biometrycznych (mikroekspresje, analiza głosu) do podejmowania decyzji.
+2.  Interfejs użytkownika **NIE MOŻE** stosować "ciemnych wzorców" (dark patterns) w celu wpływania na wybory użytkowników.
+
+### **Podstawowy Przepływ Procesu**
+
+1.  **Publikacja Roli**: Organizacja publikuje rolę, definiując `Org Truth Packet`, tryb pilotażowy (`FAST`/`FULL`) oraz termin składania aplikacji.
+2.  **Aplikacja**: Kandydaci przesyłają swoją `Needs Capsule` oraz weryfikowalne dowody kwalifikacji (poprzez VC/SD-JWT/BBS+).
+3.  **Alokacja**: Po upływie terminu, system weryfikuje minimalne wymagania, przypisuje kandydatów do jednego z trzech pasów i przeprowadza weryfikowalne losowanie, wydając `VRF Receipt` wszystkim uczestnikom.
+4.  **Kompatybilność i Weto**: Zakwalifikowani kandydaci i organizacja otrzymują `Raport Kompatybilności`. Otwiera się okno na `Wzajemne Weto`.
+5.  **Rytuał Powolności**: Pozostałe pary przechodzą do fazy wymiany asynchronicznej.
+6.  **Zaproszenie**: Po zakończeniu rytuału, organizacja może wysłać zaproszenie na spotkanie synchroniczne.

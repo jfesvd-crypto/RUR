@@ -1,28 +1,44 @@
 name: Build Project PDFs
+
 on:
   workflow_dispatch: {}
   push:
     branches: [ "main" ]
     paths:
-      - 'spec/en/**/*.md'
-      - 'spec/pl/**/*.md'
+      - 'spec/**.md'
+      - 'docs/**.md'
       - '.github/workflows/build-pdfs.yml'
 
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
         with:
           lfs: true
 
-      - name: Show repo structure (debug)
+      - name: Detect source dir (spec or docs) + show structure
+        id: detect
+        shell: bash
         run: |
-          echo "--- md files under spec ---"
-          find spec -maxdepth 3 -iname '*.md' | sort || true
+          set -euo pipefail
+          if [ -d spec/en ] || [ -d spec/pl ]; then
+            SRC=spec
+          elif [ -d docs/en ] || [ -d docs/pl ]; then
+            SRC=docs
+          else
+            echo "ERROR: Brak katalogów spec/* lub docs/*" >&2
+            exit 1
+          fi
+          echo "SRC=$SRC" | tee -a "$GITHUB_ENV"
+          echo "--- tree (depth 3) ---"
+          find . -maxdepth 3 -type d | sort
+          echo "--- md files (depth 4) ---"
+          find "$SRC" -maxdepth 4 -iname '*.md' | sort || true
 
-      - name: Install Pandoc and TeX Live
+      - name: Install Pandoc + TeX Live
         run: |
           sudo apt-get update
           sudo apt-get install -y \
@@ -40,37 +56,47 @@ jobs:
         run: |
           set -euo pipefail
           # EN
-          find spec/en -type f -iname '*.md' -print0 | sort -zV | tr '\0' '\n' > en-files.txt || true
+          if [ -d "$SRC/en" ]; then
+            find "$SRC/en" -type f -iname '*.md' -print0 \
+              | sort -zV | tr '\0' '\n' > en-files.txt
+          else
+            : > en-files.txt
+          fi
           # PL
-          find spec/pl -type f -iname '*.md' -print0 | sort -zV | tr '\0' '\n' > pl-files.txt || true
+          if [ -d "$SRC/pl" ]; then
+            find "$SRC/pl" -type f -iname '*.md' -print0 \
+              | sort -zV | tr '\0' '\n' > pl-files.txt
+          else
+            : > pl-files.txt
+          fi
 
           echo "=== EN files ==="; nl -ba en-files.txt || true
           echo "=== PL files ==="; nl -ba pl-files.txt || true
 
-          if [ ! -s en-files.txt ]; then
-            echo "ERROR: Nie znaleziono plików .md w spec/en"; exit 1
-          fi
-          if [ ! -s pl-files.txt ]; then
-            echo "ERROR: Nie znaleziono plików .md w spec/pl"; exit 1
+          if [ ! -s en-files.txt ] && [ ! -s pl-files.txt ]; then
+            echo "ERROR: Nie znaleziono żadnych .md ani w $SRC/en, ani w $SRC/pl" >&2
+            exit 1
           fi
 
       - name: Build English PDF
+        if: ${{ hashFiles('en-files.txt') != '' }}
         run: |
           pandoc -s @en-files.txt \
             --from=gfm+yaml_metadata_block \
             --toc -N \
-            --resource-path=".:spec:spec/en" \
+            --resource-path=".:${{ env.SRC }}:${{ env.SRC }}/en" \
             --pdf-engine=xelatex \
             -V lang=en-US \
             -V mainfont="DejaVu Serif" \
             -o RUR_Project_Book_v1_en.pdf
 
       - name: Build Polish PDF
+        if: ${{ hashFiles('pl-files.txt') != '' }}
         run: |
           pandoc -s @pl-files.txt \
             --from=gfm+yaml_metadata_block \
             --toc -N \
-            --resource-path=".:spec:spec/pl" \
+            --resource-path=".:${{ env.SRC }}:${{ env.SRC }}/pl" \
             --pdf-engine=xelatex \
             -V lang=pl-PL \
             -V mainfont="DejaVu Serif" \

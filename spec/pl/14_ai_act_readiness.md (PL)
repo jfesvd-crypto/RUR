@@ -1,0 +1,24 @@
+# Gotowość na AI Act i AEDT (Checklisty)
+
+### **Klasyfikacja**
+* **EU AI Act**: Protokół RUR, jako system wspierający rekrutację, podlega klasyfikacji jako system **wysokiego ryzyka** zgodnie z definicją Aktu o Sztucznej Inteligencji.
+* **NYC AEDT (Local Law 144)**: Jako zautomatyzowane narzędzie do podejmowania decyzji o zatrudnieniu, protokół podlega tej regulacji.
+
+---
+### **EU AI Act — Checklista Systemu Wysokiego Ryzyka**
+- [ ] **System Zarządzania Ryzykiem**: Ustanowiono ciągły proces identyfikacji, oceny i mitygacji ryzyka przez cały cykl życia systemu.
+- [ ] **Zarządzanie Danymi (Data Governance)**: Dane używane w procesie alokacji podlegają walidacji jakościowej i środkom kontroli uprzedzeń (bias).
+- [ ] **Transparentność i Wyjaśnialność**: Logika procesu selekcji (alokacja 3-pasowa, VRF) jest transparentnie komunikowana użytkownikom. `Paragon z Losowania` służy jako narzędzie wyjaśnialności.
+- [ ] **Nadzór Człowieka**: Protokół zawiera wiele punktów nadzoru ludzkiego. Od wszystkich zautomatyzowanych decyzji można się odwołać do człowieka. `Wzajemne Weto` i ostateczna decyzja o rozmowie pozostają w pełni pod kontrolą ludzką.
+- [ ] **Logowanie i Identyfikowalność**: Prowadzone są niezmienialne logi procesu alokacji (włączając w to protokół losowania), aby zapewnić identyfikowalność wyników.
+- [ ] **Dokładność, Solidność i Cyberbezpieczeństwo**: System jest zaprojektowany i testowany pod kątem dokładności, odporności na przypadki brzegowe oraz podatności na ataki.
+- [ ] **Monitoring Po Wprowadzeniu do Obrotu**: Wdrożono system monitorowania działania protokołu w trakcie pilotażu (`Protokół Falsyfikacji`, Panel Etyczny).
+- [ ] **Dokumentacja Techniczna**: Kompleksowa dokumentacja techniczna (dokumenty specyfikacji RUR) jest utrzymywana i aktualizowana.
+
+---
+### **Gotowość na NYC AEDT — Checklista**
+- [ ] **Niezależny Audyt Uprzedzeń**: Protokół jest zaprojektowany tak, aby przejść niezależny audyt pod kątem uprzedzeń (bias audit) przed wdrożeniem i corocznie.
+- [ ] **Publiczny Raport z Audytu**: Wyniki audytu będą publicznie dostępne na stronie internetowej projektu.
+- [ ] **Powiadomienie Kandydatów**: Kandydaci są jawnie informowani, że wchodzą w interakcję ze zautomatyzowanym narzędziem decyzyjnym.
+- [ ] **Dostęp do Informacji**: Kandydaci mają prawo do uzyskania informacji o danych wejściowych i czynnikach używanych w procesie alokacji.
+- [ ] **Mechanizm Odwołania / Rezygnacji**: Kandydaci mają prawo do alternatywnego procesu lub do ludzkiego przeglądu zautomatyzowanej decyzji.

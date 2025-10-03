@@ -1,0 +1,26 @@
+# Spec: Needs Capsule (Schema & Abuse Control)
+
+### **Definition**
+The Needs Capsule is a mandatory, structured declaration of a candidate's core requirements and preferences for a role. It replaces the open-ended, often performative nature of a cover letter with a clear, data-driven statement of intent.
+
+### **Schema**
+
+The capsule is divided into two parts:
+
+1.  **Non-Negotiables (Required)**: These are the hard constraints that a candidate sets. An offer that does not meet these criteria is automatically considered incompatible.
+    * **Minimum Salary**: A specific numerical value and currency.
+    * **Work Mode**: A clear preference (`Remote`, `Hybrid`, `On-site`).
+    * **Time Flexibility**: A boolean value indicating the need for flexible working hours.
+    * **Availability Windows**: Specific time zones or hours of availability.
+
+2.  **Preferences (Optional)**: These are the "soft" factors that influence a candidate's decision but are not hard deal-breakers.
+    * **Mentoring**: A boolean value indicating a preference for a role with strong mentorship.
+    * **Communication Style**: A preference for `asynchronous` or `synchronous` communication.
+    * **Pace of Growth**: A preference for a `fast` or `steady` professional development track.
+
+### **Protection and Abuse Control**
+To ensure the Needs Capsule is a tool for symmetry and not a new vector for discrimination, the following protections are in place:
+
+* **No Protected Characteristics**: The schema explicitly forbids fields related to protected characteristics (age, gender, ethnicity, etc.). The system is blind to this data.
+* **Decision Logging for Audits (CF-7)**: All rejection decisions correlated with the Needs Capsule data are logged. This data is used in audits to detect patterns that may indicate discrimination (e.g., if candidates requiring "flex hours" are disproportionately rejected, it triggers a review).
+* **Minimal and Progressive Disclosure**: The full content of the Needs Capsule is only revealed at the appropriate stages of the protocol, minimizing upfront data exposure.

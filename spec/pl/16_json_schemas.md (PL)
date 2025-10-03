@@ -1,0 +1,51 @@
+# Specyfikacja: Schematy JSON (Przykłady)
+
+Ten dokument dostarcza przykładowe struktury JSON dla kluczowych obiektów danych używanych w protokole RUR 1.0.
+
+### **Truth Packet (Przykład)**
+```json
+{
+  "org_id": "org_123",
+  "role_id": "role_456",
+  "rotation_12m_bucket": "10-20",
+  "overtime_median_bucket": "2-5",
+  "overtime_paid": true,
+  "work_mode": "hybrid",
+  "onsite_days_bucket": "2-3",
+  "role_tenure_bucket": "12-24",
+  "retention_90d_bucket": "70-85",
+  "attestation": "Oświadczam rzetelność i akceptuję audyt próbki.",
+  "signature": "SD-JWT|BBS+"
+}
+```
+
+### **Needs Capsule (Przykład)**
+```json
+{
+  "candidate_id": "cand_abc",
+  "non_negotiables": {
+    "salary_min": 12000,
+    "work_mode": "remote",
+    "flex_hours": true,
+    "availability": "9-15 CET"
+  },
+  "preferences": {
+    "mentoring": true,
+    "communication_style": "async",
+    "growth_tempo": "steady"
+  },
+  "ai_assist_used": true
+}
+```
+
+### **VRF Receipt (Przykład)**
+```json
+{
+  "application_hash": "0xabcdef...",
+  "drand_round": 123456,
+  "beacon": "...",
+  "lane": "L",
+  "shortlisted": true,
+  "verify_url": "[https://example.org/verify?hash=0xabcdef...&round=123456](https://example.org/verify?hash=0xabcdef...&round=123456)"
+}
+```

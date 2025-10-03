@@ -6,16 +6,17 @@ on:
   workflow_dispatch:
 
 jobs:
-  build-pdfs:
+  build:
     runs-on: ubuntu-latest
     
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
 
-      - name: Set up Pandoc
-        # POPRAWKA: Upewnij się, że na końcu jest "@v4"
-        uses: pandoc/setup-pandoc@v4
+      - name: Install Pandoc and LaTeX dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y pandoc texlive-latex-extra texlive-xetex
 
       - name: Build English PDF
         run: |
@@ -36,4 +37,3 @@ jobs:
         with:
           name: RUR-Project-Book-PL
           path: RUR_Project_Book_v1_pl.pdf
-          

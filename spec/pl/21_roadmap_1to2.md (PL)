@@ -1,0 +1,27 @@
+# Roadmapa RUR 1.0 → RUR 2.0 (Symphony)
+
+Ten dokument przedstawia ewolucyjną ścieżkę protokołu RUR, od początkowego pilotażu skoncentrowanego na minimalnej symetrii do długoterminowej wizji pełnego protokołu symbiozy.
+
+### **Etap 1 — RUR 1.0: Minimalna Symetria (0–6 Miesięcy)**
+* **Cel**: Przetestowanie, walidacja i falsyfikacja kluczowych założeń protokołu RUR w kontrolowanym pilotażu (`Latarnia-EC01`).
+* **Kluczowe Działania**:
+    * Implementacja rdzennej specyfikacji (Truth Packet, Needs Capsule, Alokacja 3-pasowa itp.).
+    * Przeprowadzenie eksperymentu `Human-in-the-Loop Digital Twin`.
+    * Uruchomienie pilotażu na żywo z małą kohortą organizacji i kandydatów.
+    * Aktywne monitorowanie systemu za pomocą `Protokołu Falsyfikacji` i Panelu Etycznego.
+    * Przygotowanie całej niezbędnej dokumentacji zgodności (DPIA, gotowość na AI Act).
+* **Główny Rezultat**: Zwalidowany (lub sfalsyfikowany) protokół z bogatym zbiorem danych na temat jego działania w świecie rzeczywistym i wpływu psychologicznego.
+
+### **Etap 2 — RUR 2.0: Pełna Symbioza ("Symphony") (6–18+ Miesięcy)**
+* **Cel**: Rozbudowa sukcesu RUR 1.0 i wdrożenie pełnej wizji protokołu symbiozy do negocjacji agent-agent.
+* **Kluczowe Cechy**:
+    * **Wzajemne Due Diligence Agent-Agent**: Ekosystemy agentów AI z obowiązkiem powierniczym, reprezentujące obie strony, prowadzą wzajemną, pogłębioną analizę kompatybilności.
+    * **Atestacje Zero-Knowledge (ZK)**: Przejście od prostych oświadczeń do pełnych dowodów z wiedzą zerową dla `Org Truth Packet` i kwalifikacji kandydatów, maksymalizując prywatność i weryfikowalność.
+    * **Zautomatyzowane Negocjacje**: Agenty negocjują wstępne warunki *przed* rozmową międzyludzką, w oparciu o zadeklarowane granice swoich mocodawców.
+* **Główny Rezultat**: Środowisko testowe (sandbox) i, docelowo, pilotaż drugiej generacji demonstrujący proces rekrutacji oparty na wzajemnym, zautomatyzowanym i rzetelnym due diligence.
+
+### **Kryteria Przejścia**
+Projekt przejdzie z Etapu 1 do Etapu 2 tylko wtedy, gdy spełnione zostaną następujące kryteria:
+* Metryki sprawiedliwości i zaufania z pilotażu RUR 1.0 są stabilne i wykazują znaczącą poprawę w stosunku do grupy kontrolnej.
+* Żadne krytyczne "czerwone flagi" z Protokołu Falsyfikacji nie pozostają nierozwiązane.
+* Grupa partnerów-innowatorów wyraża jasną gotowość i zaangażowanie do udziału w bardziej zaawansowanym sandboxie RUR 2.0.

@@ -1,33 +1,76 @@
 name: Build Project PDFs
-
 on:
   push:
     branches: [ "main" ]
-  workflow_dispatch:
+    paths:
+      - 'docs/**.md'
+      - '.github/workflows/build-pdfs.yml'
+  workflow_dispatch: {}
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
+        with:
+          lfs: true   # jeśli przypadkiem .md są w LFS, to je pobierze
 
-      - name: Install Pandoc and LaTeX dependencies
+      - name: Install Pandoc and LaTeX
         run: |
           sudo apt-get update
-          sudo apt-get install -y pandoc texlive-latex-extra texlive-xetex
+          sudo apt-get install -y \
+            pandoc \
+            texlive-xetex \
+            texlive-latex-recommended \
+            texlive-latex-extra \
+            texlive-fonts-recommended \
+            texlive-lang-european
+
+      - name: Build file lists (robust, sorted)
+        shell: bash
+        run: |
+          set -euo pipefail
+          shopt -s globstar nullglob
+
+          # EN
+          find docs/en -type f -iname '*.md' -print0 | sort -zV > en.zlist || true
+          # PL
+          find docs/pl -type f -iname '*.md' -print0 | sort -zV > pl.zlist || true
+
+          # Zamień NUL na newline (pandoc @file oczekuje 1 ścieżka/linia)
+          tr '\0' '\n' < en.zlist > en-files.txt || true
+          tr '\0' '\n' < pl.zlist > pl-files.txt || true
+
+          echo "=== EN files ==="; cat -n en-files.txt || true
+          echo "=== PL files ==="; cat -n pl-files.txt || true
+
+          # Twarde błędy, jeśli pusto
+          if [ ! -s en-files.txt ]; then
+            echo "ERROR: Nie znaleziono plików .md w docs/en"; exit 1
+          fi
+          if [ ! -s pl-files.txt ]; then
+            echo "ERROR: Nie znaleziono plików .md w docs/pl"; exit 1
+          fi
 
       - name: Build English PDF
         run: |
-          # ZMIANA: Używamy potoku | i xargs dla maksymalnej niezawodności
-          find docs/en -name "*.md" | xargs pandoc -o RUR_Project_Book_v1_en.pdf --toc --pdf-engine=xelatex
+          pandoc -s @en-files.txt \
+            --from=gfm+yaml_metadata_block \
+            --toc \
+            --pdf-engine=xelatex \
+            -V lang=en-US \
+            -o RUR_Project_Book_v1_en.pdf
 
       - name: Build Polish PDF
         run: |
-          # ZMIANA: Używamy potoku | i xargs dla maksymalnej niezawodności
-          find docs/pl -name "*.md" | xargs pandoc -o RUR_Project_Book_v1_pl.pdf --toc --pdf-engine=xelatex
-          
+          pandoc -s @pl-files.txt \
+            --from=gfm+yaml_metadata_block \
+            --toc \
+            --pdf-engine=xelatex \
+            -V lang=pl-PL \
+            -o RUR_Project_Book_v1_pl.pdf
+
       - name: Upload Artifacts
         uses: actions/upload-artifact@v4
         with:

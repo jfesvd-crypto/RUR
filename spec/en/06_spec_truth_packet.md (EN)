@@ -1,0 +1,25 @@
+# Spec: Org Truth Packet (Metrics & Signatures)
+
+### **Definition**
+The Org Truth Packet is a mandatory, verifiable set of aggregated metrics that an organization must disclose for a specific role. Its purpose is to provide candidates with a realistic, data-driven snapshot of the work culture, enabling a more symmetrical decision-making process.
+
+### **Required Metrics (v1.0)**
+The data must be presented in pre-defined "buckets" to balance signal with privacy.
+
+1.  **12-Month Team/Department Rotation**: `<10%` / `10-20%` / `>20%`
+2.  **Median Weekly Overtime (+ Paid Status)**: `0-2h` / `2-5h` / `5-10h` / `>10h`. Must indicate if overtime is compensated.
+3.  **Work Mode**: `Remote` / `Hybrid` (specifying required days on-site: `1`, `2-3`, `≥4`) / `On-site`.
+4.  **Average Tenure in This Specific Role**: `<6m` / `6-12m` / `12-24m` / `>24m`.
+5.  **90-Day Retention Rate for New Hires in This Role**: `<70%` / `70-85%` / `>85%`.
+
+### **Format and Signature**
+* **Format**: The data should be presented as aggregated "buckets". The underlying raw data is not shared.
+* **Signature**: The packet must be digitally signed using a format that supports selective disclosure (e.g., SD-JWT, BBS+).
+* **Attestation**: The signature must be accompanied by a formal declaration of truthfulness and an agreement to cooperate with randomized audits.
+
+### **Anti-Gaming and Verification**
+The integrity of the protocol relies on the truthfulness of the Org Truth Packet. The following mechanisms are in place to prevent manipulation:
+
+* **Role Dictionary**: To prevent "gaming" by creating narrowly-defined roles, the system should use a standardized role dictionary and semantic validation.
+* **Cross-Role Comparison**: The system should allow for comparing a role's Truth Packet with the organization's overall average to spot anomalies.
+* **Randomized Audits (CF-6)**: A key component of the Falsification Protocol. A sample of organizations will be subject to a privacy-preserving audit, where their declared buckets are compared against verifiable secondary data. A significant discrepancy (`>20%` in `>2` orgs) triggers a pilot-wide pause.

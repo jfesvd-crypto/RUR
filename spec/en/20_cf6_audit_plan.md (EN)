@@ -1,0 +1,27 @@
+# CF-6 Audit Plan (Methodology)
+
+### **Objective**
+To detect and act upon significant manipulation of the `Org Truth Packet` data provided by participating organizations, thereby ensuring the integrity of the RUR protocol.
+
+### **Sampling**
+* **Scope**: A sample of participating organizations will be selected for a privacy-preserving audit.
+* **Size**: The sample size will be at least **20% of the total number of organizations** in the pilot, with a minimum of **2 organizations** per cohort.
+* **Selection**: The selection will be randomized.
+
+### **Secondary Data Sources**
+The audit will compare the declared "buckets" with estimates derived from ethically sourced and anonymized secondary data. Potential sources include:
+* Aggregated tenure/retention data estimated from public professional profiles (e.g., LinkedIn).
+* Voluntary submission of internal, anonymized HR statistics by the organization.
+* Publicly available reports or employee reviews (used as a qualitative signal).
+
+### **Methodology**
+1.  For each sampled organization, an independent estimate for each of the 5 metrics will be generated based on the secondary data.
+2.  The estimate will be compared to the declared "bucket."
+3.  A **discrepancy** is flagged if the estimate falls outside the declared bucket by more than an acceptable margin of error (defined at ±10% to account for data noise).
+4.  The **pause criterion** for CF-6 is met if a significant discrepancy (`>20%` deviation) is confirmed in `≥1` metric for `>2` organizations.
+
+### **Procedure**
+1.  The audit is conducted by a designated, independent party or a subcommittee of the Ethical Panel.
+2.  If the pause criterion is met, a formal report is submitted to the full Ethical Panel.
+3.  The Ethical Panel reviews the report and holds the final authority to pause the pilot.
+4.  The decision and a summary of the findings are published in the public changelog.

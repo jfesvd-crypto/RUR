@@ -1,0 +1,30 @@
+# Spec: 3-Lane Allocation & VRF
+
+### **Definition**
+The 3-Lane Allocation is the core mechanism for creating a fair and transparent shortlist. It replaces the opaque, "fastest-first" model with a structured, auditable system that balances merit, contribution, and equity.
+
+### **Lane Definitions**
+
+All candidates who meet the minimum requirements for the role are assigned to one of three lanes:
+
+1.  **Lane L (Lottery)**: This lane is for all candidates who meet the basic, non-negotiable criteria defined in the `Org Truth Packet` and their `Needs Capsule`. It ensures that every qualified candidate has a chance.
+2.  **Lane R (Relational)**: This lane is for candidates who, in addition to meeting the minimum criteria, can provide verifiable evidence of engagement with the organization's domain or values (e.g., contributions to relevant open-source projects, participation in community initiatives). This rewards demonstrated, long-term interest without fetishizing brand names on a CV.
+3.  **Lane E (Equity)**: This lane is for candidates who meet the minimum criteria and belong to groups with a demonstrated structural deficit of access (e.-g., entering the workforce after a long break, coming from a region with fewer accredited institutions). This is handled in a privacy-preserving manner, without processing sensitive personal data.
+
+### **Allocation Ratios**
+The number of shortlist slots allocated to each lane is pre-defined and public for each role. The default ratios are:
+
+* **FULL Mode (48h Ritual)**: 40% Lane L / 30% Lane R / 30% Lane E
+* **FAST Mode (24h Ritual)**: 50% Lane L / 25% Lane R / 25% Lane E
+
+### **Randomness and Auditability (VRF)**
+
+To ensure the lottery component is provably fair and cannot be manipulated by any party (including the system operator), the protocol **MUST** use a Verifiable Random Function (VRF).
+
+* **Beacon**: The randomization process **MUST** be seeded by a public, unpredictable, and universally verifiable source of randomness (a "beacon"), such as the output from `drand`.
+* **VRF Receipt**: Every candidate who participates in the lottery **MUST** receive a "receipt from the lottery." This is a digitally signed piece of data that includes:
+    * Their application hash.
+    * The public beacon's data (e.g., drand round number).
+    * The VRF proof.
+    * A link to a public verifier.
+* **Anti-Abuse**: To prevent Sybil attacks (a single user creating multiple accounts to increase their chances), the system **MUST** use a privacy-preserving proof-of-personhood mechanism (e.g., unique tokens tied to a Passkey/WebAuthn). The number of active applications per candidate is also limited.

@@ -1,0 +1,19 @@
+# Jak zweryfikować losowanie (VRF)
+
+### **Zasada**
+Sprawiedliwość losowania w protokole RUR nie jest kwestią zaufania, lecz kryptograficznego dowodu. Każdy uczestnik może niezależnie zweryfikować, że wynik był autentycznie losowy i nie został zmanipulowany. Jest to możliwe dzięki użyciu Weryfikowalnej Funkcji Losowej (VRF).
+
+### **Kroki Weryfikacji**
+
+1.  **Sprawdź Swój Paragon**: Twój `Paragon z Losowania` (VRF Receipt) zawiera publiczne dane potrzebne do weryfikacji, w tym numer rundy `drand_round` oraz wartość `beacon`.
+2.  **Pobierz Publiczny Seed**: Użyj numeru `drand_round`, aby pobrać odpowiednią publiczną wartość losową (seed) z API publicznego beacona (np. sieci `drand`).
+3.  **Zweryfikuj Dowód VRF**: Używając lokalnego skryptu lub publicznego narzędzia do weryfikacji, wprowadź hash swojej aplikacji, publiczny seed oraz dowód VRF z Twojego paragonu. Narzędzie matematycznie potwierdzi, że losowy wynik został poprawnie wygenerowany z seeda.
+4.  **Porównaj z Shortlistą**: Porównaj zweryfikowany wynik z publicznie opublikowanymi rezultatami w logu audytowym losowania.
+
+### **Narzędzia**
+* **API Beacona**: Publiczne API wybranego beacona losowości (np. `drand`, `NIST`).
+* **Biblioteka VRF**: Biblioteka kryptograficzna open-source, która potrafi zweryfikować konkretny schemat VRF użyty w protokole (np. oparty o ed25519 lub secp256k1).
+
+### **Uwagi**
+* **Testy A/A**: Stabilność rozkładu losowego jest weryfikowana poprzez testy A/A w trakcie pilotażu.
+* **Publiczny Weryfikator**: Projekt będzie utrzymywał publiczne repozytorium z prostymi skryptami, aby ułatwić proces weryfikacji użytkownikom technicznym.

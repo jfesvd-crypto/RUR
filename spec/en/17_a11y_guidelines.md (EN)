@@ -1,0 +1,25 @@
+# Accessibility Guidelines (A11y)
+
+### **Core Principles**
+Any user interface implementing the RUR protocol **MUST** adhere to the principles of universal design to ensure it is accessible to people with a wide range of abilities.
+
+1.  **Equivalent Paths**: For all `Rituals of Slowness`, the system **MUST** provide equivalent alternative modalities. If a task is presented visually (e.g., a diagram), a text-based or audio alternative must be available. Users must be able to choose their preferred mode of interaction (text, audio, video) without penalty.
+
+2.  **WCAG Compliance**: The interface **MUST** meet the Web Content Accessibility Guidelines (WCAG) 2.1 Level AA standard. This includes, but is not limited to:
+    * **Contrast and Fonts**: Sufficient color contrast and scalable text.
+    * **Keyboard Navigation**: All functionality must be operable via a keyboard.
+    * **Screen Reader Support**: The interface must be compatible with modern screen readers, using proper semantic HTML and ARIA attributes.
+
+3.  **Flexible Timing**: Users **MUST** have the ability to request an extension for timed sections of the protocol (like the `Rituals of Slowness`) to accommodate disabilities or specific needs.
+
+---
+### **A11y Checklist**
+- [ ] Equivalent modalities (text/audio/video) are provided for all rituals.
+- [ ] Transcripts and/or captions are available for all audio/video content.
+- [ ] Color contrast meets WCAG AA standards.
+- [ ] Text can be resized without loss of content or functionality.
+- [ ] All interactive elements are fully navigable and operable using a keyboard.
+- [ ] `focus` states are clearly visible.
+- [ ] ARIA attributes are used correctly for complex components.
+- [ ] A mechanism to extend time limits is available.
+- [ ] The interface has been tested with major screen readers (e.g., NVDA, VoiceOver).

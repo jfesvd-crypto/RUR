@@ -1,0 +1,39 @@
+# Falsification Protocol v0.1 (CF-1…CF-8)
+
+This protocol defines the critical failure conditions ("red flags") for the RUR 1.0 pilot. Its purpose is to provide a clear, pre-committed framework for identifying when the system is not working as intended, triggering a review by the Ethical Panel.
+
+---
+
+### **Red Flags (CF)**
+
+**CF-1: Failure of Perceived Fairness**
+* **Criterion**: The pilot fails to show a statistically significant increase in perceived procedural fairness (`≥ +15 pp` vs. control group) while keeping the time-to-offer within an acceptable margin (`≤ +25%` vs. control).
+* **Action**: Re-calibrate the Rituals of Slowness and/or the lane allocation ratios. Pause if necessary.
+
+**CF-2: Status Bias in the Relational Lane**
+* **Criterion**: A strong correlation is detected between a candidate's placement in the Relational Lane and signals of elite status (e.g., prestigious university/company brands), without a corresponding increase in shortlist quality.
+* **Action**: Deprecate or re-weight the low-information signals contributing to the bias.
+
+**CF-3: Excessive Ritual Burden**
+* **Criterion**: The `Rituals of Slowness` increase the time burden on participants (`> +25%` vs. control) without a measurable increase in the quality of interactions or mutual understanding (as measured by NPS/blind reviews).
+* **Action**: Shorten the rituals or rotate the formats more frequently.
+
+**CF-4: AI Assistance as a Status Signal**
+* **Criterion**: A significant positive correlation is found between candidates who declare using AI assistance and their likelihood of being invited to the next stage.
+* **Action**: Educate reviewers; mask the AI assistance checkbox during the initial review phase.
+
+**CF-5: Low Truth Packet Completeness**
+* **Criterion**: The completeness rate for the `Org Truth Packet` across participating organizations falls below an acceptable threshold (e.g., `<60%` of required fields are consistently filled).
+* **Action**: Enforce completion or exclude non-compliant organizations from the pilot.
+
+**CF-6: Truth Packet Manipulation (Critical)**
+* **Criterion**: A randomized audit reveals a significant discrepancy (`>20%`) between the declared metrics and verifiable secondary data in more than two participating organizations.
+* **Action**: **Immediate pilot pause**. Implement stronger verification mechanisms before resuming.
+
+**CF-7: Discrimination via Needs Capsule**
+* **Criterion**: A statistical analysis (controlling for qualifications) reveals a significant negative correlation between specific non-negotiable needs (e.g., flexible hours) and a candidate's progression in the process.
+* **Action**: Pause, conduct a bias audit, implement anti-bias rules, and retrain reviewers.
+
+**CF-8: Veto Asymmetry**
+* **Criterion**: A strongly one-sided distribution of the `Mutual Veto` is observed that is not justified by the `Compatibility Reports` (e.g., one side vetoes disproportionately often despite "Aligned" reports).
+* **Action**: Re-calibrate the Compatibility Report algorithm and/or improve communication to participants.

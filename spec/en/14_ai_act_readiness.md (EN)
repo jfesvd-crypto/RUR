@@ -1,0 +1,24 @@
+# AI Act Readiness & AEDT Readiness (Checklists)
+
+### **Classification**
+* **EU AI Act**: The RUR protocol, as a system supporting recruitment, falls under the **high-risk** category as defined by the AI Act.
+* **NYC AEDT (Local Law 144)**: As an Automated Employment Decision Tool, the protocol is subject to this regulation.
+
+---
+### **EU AI Act — High-Risk System Checklist**
+- [ ] **Risk Management System**: A continuous process for risk identification, evaluation, and mitigation is established throughout the system's lifecycle.
+- [ ] **Data Governance**: The data used for the allocation process is subject to quality validation and bias control measures.
+- [ ] **Transparency & Explainability**: The logic of the shortlisting process (3-lane allocation, VRF) is transparently communicated to users. The `VRF Receipt` serves as a tool for explainability.
+- [ ] **Human Oversight**: The protocol includes multiple points for human oversight. All automated decisions can be appealed to a human reviewer. The `Mutual Veto` and final interview decision remain fully in human control.
+- [ ] **Logging & Traceability**: Immutable logs of the allocation process (including the lottery protocol) are kept to ensure traceability of outcomes.
+- [ ] **Accuracy, Robustness, & Cybersecurity**: The system is designed and tested for accuracy, robustness against edge cases, and cybersecurity vulnerabilities.
+- [ ] **Post-Market Monitoring**: A system for monitoring the protocol's performance in the live pilot is in place (`Falsification Protocol`, Ethical Panel).
+- [ ] **Technical Documentation**: Comprehensive technical documentation (the RUR specification documents) is maintained and kept up-to-date.
+
+---
+### **NYC AEDT — Readiness Checklist**
+- [ ] **Independent Bias Audit**: The protocol is designed to undergo an independent bias audit before deployment and on an annual basis.
+- [ ] **Public Audit Report**: The results of the bias audit will be made publicly available on the project's website.
+- [ ] **Candidate Notification**: Candidates are explicitly notified that they are interacting with an automated decision tool as part of the process.
+- [ ] **Access to Information**: Candidates have the right to inquire about the input data and factors used in the allocation process.
+- [ ] **Opt-Out/Appeal Mechanism**: Candidates have the right to an alternative process or a human review of the automated decision.

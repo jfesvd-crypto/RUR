@@ -1,0 +1,16 @@
+# How to Interpret Buckets (1-Pager)
+
+### **Purpose**
+The "buckets" (pre-defined ranges) used in the `Org Truth Packet` are designed to balance two competing needs: providing a meaningful **signal** about work culture while protecting the **privacy** of individuals and the commercial sensitivity of precise data. They are not for "hiding" bad numbers, but for providing honest context.
+
+### **Guidelines for Interpretation**
+
+* **High Rotation (`>20%`)**: This can be a red flag for instability. However, it's important to consider context. An organization should be prepared to explain if this is due to rapid scaling, seasonal work, or a recent restructuring.
+
+* **High Overtime (`>10h`)**: This signals a demanding work environment. The "Paid" status is critical here. Candidates should consider if this aligns with their work-life balance needs. Organizations should be transparent about whether this is a temporary "crunch" or a permanent cultural feature.
+
+* **Low Tenure (`<6m`)**: A very low average tenure in a specific role is a significant red flag, suggesting a potential mismatch between the role's description and its reality, or a difficult work environment. This metric requires careful explanation from the organization.
+
+* **Low 90-Day Retention (`<70%`)**: This may indicate a flawed onboarding process or that new hires quickly realize the role is not what was advertised. It's a strong indicator of potential problems in the immediate post-hiring phase.
+
+* **Work Mode**: Be precise. If `Hybrid` is selected, the `on-site days` bucket provides the real expectation. "2-3 days" is a very different commitment than "1 day."

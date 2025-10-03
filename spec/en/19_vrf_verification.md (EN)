@@ -1,0 +1,19 @@
+# How to Verify the Lottery (VRF)
+
+### **Principle**
+The fairness of the RUR protocol's lottery is not a matter of trust, but of cryptographic proof. Any participant can independently verify that the outcome was genuinely random and not tampered with. This is achieved using a Verifiable Random Function (VRF).
+
+### **Verification Steps**
+
+1.  **Check Your Receipt**: Your `VRF Receipt` contains the public data needed for verification, including the `drand_round` number and the `beacon` value.
+2.  **Fetch the Public Seed**: Use the `drand_round` number to fetch the corresponding public randomness value (the seed) from the public beacon's API (e.g., the `drand` network).
+3.  **Verify the VRF Proof**: Using a local script or a public verification tool, input your application hash, the public seed, and the VRF proof from your receipt. The tool will mathematically verify that the random output was correctly generated from the seed.
+4.  **Compare with the Shortlist**: Compare the verified outcome with the publicly posted results in the lottery's audit log.
+
+### **Tools**
+* **Beacon API**: The public API of the chosen randomness beacon (e.g., `drand`, `NIST`).
+* **VRF Library**: An open-source cryptographic library that can verify the specific VRF scheme used (e.g., based on ed25519 or secp256k1).
+
+### **Notes**
+* **A/A Testing**: The stability of the randomization distribution is verified through A/A tests during the pilot.
+* **Public Verifier**: The project will maintain a public repository with simple scripts to facilitate the verification process for technical users.

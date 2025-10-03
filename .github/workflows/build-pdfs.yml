@@ -20,11 +20,13 @@ jobs:
 
       - name: Build English PDF
         run: |
-          pandoc docs/en/*.md -o RUR_Project_Book_v1_en.pdf --toc --pdf-engine=xelatex
+          # ROZWIĄZANIE: Używamy 'find' aby jawnie i niezawodnie znaleźć wszystkie pliki .md
+          pandoc $(find docs/en -name "*.md") -o RUR_Project_Book_v1_en.pdf --toc --pdf-engine=xelatex
 
       - name: Build Polish PDF
         run: |
-          pandoc docs/pl/*.md -o RUR_Project_Book_v1_pl.pdf --toc --pdf-engine=xelatex
+          # ROZWIĄZANIE: Używamy 'find' aby jawnie i niezawodnie znaleźć wszystkie pliki .md
+          pandoc $(find docs/pl -name "*.md") -o RUR_Project_Book_v1_pl.pdf --toc --pdf-engine=xelatex
           
       - name: Upload Artifacts
         uses: actions/upload-artifact@v4
@@ -33,4 +35,3 @@ jobs:
           path: |
             RUR_Project_Book_v1_en.pdf
             RUR_Project_Book_v1_pl.pdf
-            

@@ -1,0 +1,25 @@
+# Wytyczne Dostępności (A11y)
+
+### **Podstawowe Zasady**
+Każdy interfejs użytkownika implementujący protokół RUR **MUSI** przestrzegać zasad projektowania uniwersalnego, aby zapewnić jego dostępność dla osób o szerokim zakresie zdolności.
+
+1.  **Równoważne Ścieżki**: Dla wszystkich `Rytuałów Powolności`, system **MUSI** zapewniać równoważne alternatywne modalności. Jeśli zadanie jest prezentowane wizualnie (np. diagram), musi być dostępna alternatywa tekstowa lub dźwiękowa. Użytkownicy muszą mieć możliwość wyboru preferowanego trybu interakcji (tekst, audio, wideo) bez żadnej kary.
+
+2.  **Zgodność z WCAG**: Interfejs **MUSI** spełniać standard Web Content Accessibility Guidelines (WCAG) 2.1 na poziomie AA. Obejmuje to między innymi:
+    * **Kontrast i Czcionki**: Wystarczający kontrast kolorów i skalowalny tekst.
+    * **Nawigacja Klawiaturą**: Cała funkcjonalność musi być obsługiwana za pomocą klawiatury.
+    * **Wsparcie dla Czytników Ekranu**: Interfejs musi być kompatybilny z nowoczesnymi czytnikami ekranu, używając poprawnego semantycznego HTML i atrybutów ARIA.
+
+3.  **Elastyczny Czas**: Użytkownicy **MUSZĄ** mieć możliwość poproszenia o przedłużenie limitów czasowych w protokole (jak w `Rytuałach Powolności`), aby uwzględnić niepełnosprawności lub specyficzne potrzeby.
+
+---
+### **Checklista A11y**
+- [ ] Zapewniono alternatywne modalności (tekst/audio/wideo) dla wszystkich rytuałów.
+- [ ] Dostępne są napisy i/lub transkrypcje dla wszystkich treści audio/wideo.
+- [ ] Kontrast kolorów spełnia standardy WCAG AA.
+- [ ] Tekst można powiększać bez utraty treści lub funkcjonalności.
+- [ ] Wszystkie elementy interaktywne są w pełni nawigowalne i obsługiwane za pomocą klawiatury.
+- [ ] Stany `:focus` są wyraźnie widoczne.
+- [ ] Atrybuty ARIA są używane poprawnie dla złożonych komponentów.
+- [ ] Dostępny jest mechanizm przedłużania limitów czasowych.
+- [ ] Interfejs został przetestowany z głównymi czytnikami ekranu (np. NVDA, VoiceOver).

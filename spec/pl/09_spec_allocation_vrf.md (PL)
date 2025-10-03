@@ -1,0 +1,30 @@
+# Specyfikacja: Alokacja 3-pasowa i VRF
+
+### **Definicja**
+Alokacja 3-pasowa to centralny mechanizm tworzenia sprawiedliwej i transparentnej shortlisty. Zastępuje nieprzejrzysty model "kto pierwszy, ten lepszy" ustrukturyzowanym, audytowalnym systemem, który równoważy merytorykę, wkład i równość szans.
+
+### **Definicje Pasów**
+
+Wszyscy kandydaci, którzy spełniają minimalne wymagania dla danej roli, są przypisywani do jednego z trzech pasów:
+
+1.  **Pas L (Losowy)**: Przeznaczony dla wszystkich kandydatów, którzy spełniają podstawowe, nienegocjowalne kryteria zdefiniowane w `Org Truth Packet` i ich `Needs Capsule`. Zapewnia, że każdy wykwalifikowany kandydat ma szansę.
+2.  **Pas R (Relacyjny)**: Przeznaczony dla kandydatów, którzy oprócz spełnienia minimum, mogą dostarczyć weryfikowalne dowody zaangażowania w domenę lub wartości organizacji (np. wkład w relewantne projekty open-source, udział w inicjatywach społecznych). Nagradza to wykazane, długoterminowe zainteresowanie bez fetyszyzowania marek w CV.
+3.  **Pas W (Wyrównawczy)**: Przeznaczony dla kandydatów, którzy spełniają minimum i należą do grup o udowodnionym strukturalnym deficycie dostępu (np. powrót na rynek pracy po długiej przerwie, pochodzenie z regionu o mniejszej liczbie akredytowanych instytucji). Jest to obsługiwane w sposób chroniący prywatność, bez przetwarzania wrażliwych danych osobowych.
+
+### **Proporcje Alokacji**
+Liczba miejsc na shortliście przydzielona do każdego pasa jest predefiniowana i publiczna dla każdej roli. Domyślne proporcje to:
+
+* **Tryb FULL (Rytuał 48h)**: 40% Pas L / 30% Pas R / 30% Pas W
+* **Tryb FAST (Rytuał 24h)**: 50% Pas L / 25% Pas R / 25% Pas W
+
+### **Losowość i Audytowalność (VRF)**
+
+Aby zapewnić, że komponent losowy jest w sposób dowodowy sprawiedliwy i niemożliwy do zmanipulowania przez żadną ze stron (włączając operatora systemu), protokół **MUSI** używać Weryfikowalnej Funkcji Losowej (VRF).
+
+* **Beacon**: Proces losowania **MUSI** być inicjowany ("zasiany") przez publiczne, nieprzewidywalne i uniwersalnie weryfikowalne źródło losowości ("beacon"), takie jak dane wyjściowe z `drand`.
+* **Paragon z Losowania (VRF Receipt)**: Każdy kandydat uczestniczący w losowaniu **MUSI** otrzymać "paragon z losowania". Jest to podpisany cyfrowo fragment danych, który zawiera:
+    * Hash jego aplikacji.
+    * Dane publicznego beacona (np. numer rundy drand).
+    * Dowód VRF.
+    * Link do publicznego weryfikatora.
+* **Mechanizmy Anty-nadużyciowe**: Aby zapobiec atakom Sybil (jeden użytkownik tworzący wiele kont w celu zwiększenia szans), system **MUSI** używać chroniącego prywatność mechanizmu dowodu tożsamości (proof-of-personhood), np. unikalnych tokenów powiązanych z Passkey/WebAuthn. Liczba aktywnych aplikacji na kandydata jest również ograniczona.

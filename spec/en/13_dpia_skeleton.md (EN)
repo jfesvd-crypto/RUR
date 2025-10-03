@@ -1,0 +1,37 @@
+# DPIA — Data Protection Impact Assessment (Skeleton + Checklist)
+
+### **1. Description of Processing**
+* **Purpose**: To shortlist and pre-select candidates according to the RUR 1.0 protocol.
+* **Data Categories**: Aggregated metrics from `Org Truth Packet`, non-negotiable requirements from `Needs Capsule`, VRF logs, and process metadata. No sensitive personal data is processed by default.
+* **Recipients**: Participating organizations (limited, pseudonymized data); Ethical Panel (aggregated data only).
+
+### **2. Legal Basis**
+* The processing is based on the performance of a contract (Art. 6(1)(b) GDPR) with the participants and the legitimate interest (Art. 6(1)(f) GDPR) of creating a fair and efficient recruitment market.
+* Information about the logic involved in the automated decision-making process (VRF lottery, lane allocation) is provided to all participants.
+
+### **3. Minimization and Retention**
+* Data collection is minimized to what is strictly necessary. Data is aggregated into "buckets" to protect privacy.
+* Data retention is set to 90 days, after which all personal data is deleted or fully anonymized.
+* The principle of progressive disclosure is applied throughout the protocol.
+
+### **4. Risks and Mitigating Measures**
+* **Risk of Discrimination**: Mitigated by anti-bias rules, audits (CF-7), blinding the system to protected characteristics, and providing a human-in-the-loop for appeals.
+* **Risk of `Org Truth Packet` Manipulation**: Mitigated by audits (CF-6), digital signatures (SD-JWT/BBS+), and reputational consequences.
+* **Risk of Data Breach**: Mitigated by end-to-end encryption, access control, and other security measures outlined in `15_security_retention.md`.
+
+### **5. Decision**
+* [ ] Accept residual risk
+* [ ] Mitigation required (describe)
+* [ ] Consult with the Data Protection Authority (if risk remains high)
+
+---
+### **DPIA Checklist**
+- [ ] Processing purposes and data categories identified (minimization applied).
+- [ ] Legal basis determined and information about the logic provided.
+- [ ] 90-day retention policy and deletion/anonymization process designed.
+- [ ] Technical measures implemented (encryption, access control, logs).
+- [ ] Organizational measures implemented (training, appeal procedures).
+- [ ] Risk assessment conducted (discrimination, data manipulation, privacy).
+- [ ] Audits (CF-6, CF-7) and the Ethical Panel planned.
+- [ ] Decision and risk ownership documented.
+- [ ] Mechanisms to fulfill data subject rights (access, rectification, erasure) are in place.

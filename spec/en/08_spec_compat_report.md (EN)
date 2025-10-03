@@ -1,0 +1,28 @@
+# Spec: Compatibility Report (Light)
+
+### **Definition**
+The Compatibility Report is a lightweight, two-way summary presented to both the candidate and the organization after the initial, automated matching phase. Its purpose is not to provide a "score" or "rank," but to create a transparent basis for the `Mutual Veto` decision. It is a map of alignment and potential friction.
+
+### **Axes of Comparison**
+The report is structured around a few key, non-discriminatory axes derived from the `Org Truth Packet` and the `Needs Capsule`:
+
+1.  **Work Rhythm**: Compares the candidate's preferences for `Work Mode` (remote/hybrid/on-site) and `Time Flexibility` with the organization's declared reality.
+2.  **Autonomy & Growth**: Compares the candidate's preference for `Mentoring` and `Pace of Growth` with signals from the organization's data (e.g., `Average Tenure in Role`).
+3.  **Communication**: Compares the candidate's preferred `Communication Style` (async/sync) with the organization's work mode.
+4.  **Values (Proxy)**: Compares signals of what the organization values (e.g., high `Overtime` might signal a "hustle culture") with the candidate's non-negotiable boundaries.
+5.  **Team Rituals**: A placeholder for future versions where team-specific practices can be declared.
+
+### **Output Format**
+For each axis, the report provides a simple, non-numeric status:
+
+* **Aligned**: Indicates strong compatibility.
+* **Partially Aligned**: Indicates potential for discussion or compromise.
+* **Conflict**: Indicates a fundamental mismatch based on a non-negotiable requirement.
+
+The report also highlights **1-2 key points of potential friction** for both parties to consider.
+
+### **Process Flow**
+1.  After the 3-lane allocation is complete, the report is generated for each shortlisted candidate.
+2.  Both the candidate and the organization receive their respective, symmetrically presented reports.
+3.  A window opens for the **`Mutual Veto`**. Either party can anonymously and without reputational penalty choose not to proceed. The other party is only informed that "incompatibility was detected," not who made the decision.
+4.  If neither party exercises the veto, the process moves to the `Ritual of Slowness`.

@@ -1,0 +1,39 @@
+# Protokół Falsyfikacji v0.1 (CF-1…CF-8)
+
+Ten protokół definiuje krytyczne warunki niepowodzenia ("czerwone flagi") dla pilotażu RUR 1.0. Jego celem jest zapewnienie jasnych, z góry zdefiniowanych ram do identyfikacji, kiedy system nie działa zgodnie z intencją, co uruchamia przegląd przez Panel Etyczny.
+
+---
+
+### **Czerwone Flagi (CF)**
+
+**CF-1: Porażka w Percepcji Sprawiedliwości**
+* **Kryterium**: Pilotaż nie wykazuje statystycznie istotnego wzrostu odczuwanej sprawiedliwości proceduralnej (`≥ +15 p.p.` vs. grupa kontrolna) przy jednoczesnym utrzymaniu czasu do oferty w akceptowalnym marginesie (`≤ +25%` vs. kontrola).
+* **Działanie**: Re-kalibracja Rytuałów Powolności i/lub proporcji alokacji pasów. W razie potrzeby pauza.
+
+**CF-2: Uprzedzenie Statusowe w Pasie Relacyjnym**
+* **Kryterium**: Wykryto silną korelację między umieszczeniem kandydata w Pasie Relacyjnym a sygnałami elitarnego statusu (np. prestiżowe marki uczelni/firm), bez jednoczesnego wzrostu jakości shortlisty.
+* **Działanie**: Deprecjacja lub zmiana wag nisko-informacyjnych sygnałów powodujących uprzedzenie.
+
+**CF-3: Nadmierne Obciążenie Rytuałami**
+* **Kryterium**: `Rytuały Powolności` zwiększają obciążenie czasowe uczestników (`> +25%` vs. kontrola) bez mierzalnego wzrostu jakości interakcji lub wzajemnego zrozumienia (mierzone przez NPS/oceny "blind").
+* **Działanie**: Skrócenie rytuałów lub częstsza rotacja formatów.
+
+**CF-4: Asysta AI jako Sygnał Statusu**
+* **Kryterium**: Znaleziona zostaje istotna pozytywna korelacja między kandydatami, którzy deklarują użycie asysty AI, a ich prawdopodobieństwem zaproszenia do kolejnego etapu.
+* **Działanie**: Edukacja osób oceniających; maskowanie checkboxa asysty AI podczas wstępnej oceny.
+
+**CF-5: Niska Kompletność Org Truth Packet**
+* **Kryterium**: Wskaźnik kompletności `Org Truth Packet` w uczestniczących organizacjach spada poniżej akceptowalnego progu (np. `<60%` wymaganych pól jest konsekwentnie wypełnianych).
+* **Działanie**: Wymuszenie uzupełnienia lub wykluczenie niespełniających wymogów organizacji z pilotażu.
+
+**CF-6: Manipulacja Org Truth Packet (Krytyczne)**
+* **Kryterium**: Losowy audyt ujawnia znaczącą rozbieżność (`>20%`) między zadeklarowanymi metrykami a weryfikowalnymi danymi wtórnymi w więcej niż dwóch uczestniczących organizacjach.
+* **Działanie**: **Natychmiastowa pauza w pilotażu**. Wdrożenie silniejszych mechanizmów weryfikacji przed wznowieniem.
+
+**CF-7: Dyskryminacja poprzez Needs Capsule**
+* **Kryterium**: Analiza statystyczna (z kontrolą kwalifikacji) ujawnia istotną negatywną korelację między konkretnymi potrzebami nienegocjowalnymi (np. elastyczne godziny) a postępem kandydata w procesie.
+* **Działanie**: Pauza, przeprowadzenie audytu pod kątem uprzedzeń, wdrożenie zasad anty-bias i ponowne przeszkolenie oceniających.
+
+**CF-8: Asymetria Weta**
+* **Kryterium**: Zaobserwowano silnie jednostronny rozkład `Wzajemnego Weta`, który nie jest uzasadniony przez `Raporty Kompatybilności` (np. jedna strona wetuje nieproporcjonalnie często pomimo raportów "Zgodne").
+* **Działanie**: Re-kalibracja algorytmu Raportu Kompatybilności i/lub poprawa komunikacji z uczestnikami.

@@ -1,4 +1,4 @@
-name: Build Project PDFs
+name: Build PDFs (combine then convert)
 on:
   workflow_dispatch: {}
   push:
@@ -18,24 +18,6 @@ jobs:
           lfs: true
           fetch-depth: 0
 
-      - name: Detect source dir (spec or docs) + show structure
-        id: detect
-        shell: bash
-        run: |
-          set -euo pipefail
-          if [ -d spec/en ] || [ -d spec/pl ]; then
-            SRC=spec
-          elif [ -d docs/en ] || [ -d docs/pl ]; then
-            SRC=docs
-          else
-            echo "ERROR: Brak katalogów spec/* ani docs/*" >&2
-            exit 1
-          fi
-          echo "SRC=$SRC" | tee -a "$GITHUB_ENV"
-          echo "SRC=$SRC"
-          echo "--- md files under $SRC ---"
-          find "$SRC" -maxdepth 3 -iname '*.md' | sort || true
-
       - name: Install Pandoc + TeX Live
         run: |
           sudo apt-get update
@@ -49,64 +31,83 @@ jobs:
             fonts-dejavu-core \
             lmodern
 
-      - name: Build file lists (count + outputs)
-        id: lists
+      - name: Combine Markdown into single files (EN/PL)
         shell: bash
         run: |
           set -euo pipefail
 
-          EN_COUNT=0
-          if [ -d "$SRC/en" ]; then
-            find "$SRC/en" -type f -iname '*.md' -print0 \
-              | sort -zV | tr '\0' '\n' > en-files.txt
-            EN_COUNT=$(grep -c . en-files.txt || true)
-          else
-            : > en-files.txt
-          fi
+          make_combined() {
+            local lang="$1" out="COMBINED_${lang}.md" title meta_lang
+            if [ "$lang" = "pl" ]; then
+              title="RUR Project Book (PL)"; meta_lang="pl-PL"
+            else
+              title="RUR Project Book (EN)"; meta_lang="en-US"
+            fi
 
-          PL_COUNT=0
-          if [ -d "$SRC/pl" ]; then
-            find "$SRC/pl" -type f -iname '*.md' -print0 \
-              | sort -zV | tr '\0' '\n' > pl-files.txt
-            PL_COUNT=$(grep -c . pl-files.txt || true)
-          else
-            : > pl-files.txt
-          fi
+            # Zbierz ścieżki śledzonych plików (spec/… i/lub docs/…)
+            git ls-files -z -- "spec/${lang}/**/*.md" "docs/${lang}/**/*.md" \
+              | sort -zV > "${lang}.zlist" || true
+            tr '\0' '\n' < "${lang}.zlist" > "${lang}-files.txt" || true
+            local count
+            count=$(grep -c . "${lang}-files.txt" || true)
 
-          echo "=== EN files ($EN_COUNT) ==="; nl -ba en-files.txt || true
-          echo "=== PL files ($PL_COUNT) ==="; nl -ba pl-files.txt || true
+            if [ "$count" -eq 0 ]; then
+              echo "No ${lang} .md files found — skipping combine."
+              : > "$out"
+              return
+            fi
 
-          echo "en_count=$EN_COUNT" >> "$GITHUB_OUTPUT"
-          echo "pl_count=$PL_COUNT" >> "$GITHUB_OUTPUT"
+            # Prosty nagłówek YAML – pandoc go odczyta
+            cat > "$out" <<EOF
+---
+title: "$title"
+lang: $meta_lang
+---
+EOF
 
-          if [ "$EN_COUNT" -eq 0 ] && [ "$PL_COUNT" -eq 0 ]; then
-            echo "ERROR: Nie znaleziono żadnych .md w $SRC/{en,pl}" >&2
-            exit 1
-          fi
+            # Dołóż zawartość wszystkich plików po kolei
+            while IFS= read -r f; do
+              printf "\n\n" >> "$out"
+              cat "$f" >> "$out"
+            done < "${lang}-files.txt"
 
-      - name: Build English PDF
-        if: ${{ steps.lists.outputs.en_count != '0' }}
+            echo "Built $out from $count files"
+          }
+
+          make_combined en
+          make_combined pl
+
+      - name: Build English PDF (from single file)
+        shell: bash
         run: |
-          pandoc -s @en-files.txt \
-            --from=gfm+yaml_metadata_block \
-            --toc -N \
-            --resource-path=".:${{ env.SRC }}:${{ env.SRC }}/en" \
-            --pdf-engine=xelatex \
-            -V lang=en-US \
-            -V mainfont="DejaVu Serif" \
-            -o RUR_Project_Book_v1_en.pdf
+          if [ -s COMBINED_en.md ]; then
+            pandoc -s COMBINED_en.md \
+              --from=gfm+yaml_metadata_block \
+              --toc -N \
+              --resource-path=".:spec:docs:spec/en:spec/pl:docs/en:docs/pl" \
+              --pdf-engine=xelatex \
+              -V mainfont="DejaVu Serif" \
+              -V lang=en-US \
+              -o RUR_Project_Book_v1_en.pdf
+          else
+            echo "Skipping EN (no combined file)"
+          fi
 
-      - name: Build Polish PDF
-        if: ${{ steps.lists.outputs.pl_count != '0' }}
+      - name: Build Polish PDF (from single file)
+        shell: bash
         run: |
-          pandoc -s @pl-files.txt \
-            --from=gfm+yaml_metadata_block \
-            --toc -N \
-            --resource-path=".:${{ env.SRC }}:${{ env.SRC }}/pl" \
-            --pdf-engine=xelatex \
-            -V lang=pl-PL \
-            -V mainfont="DejaVu Serif" \
-            -o RUR_Project_Book_v1_pl.pdf
+          if [ -s COMBINED_pl.md ]; then
+            pandoc -s COMBINED_pl.md \
+              --from=gfm+yaml_metadata_block \
+              --toc -N \
+              --resource-path=".:spec:docs:spec/en:spec/pl:docs/en:docs/pl" \
+              --pdf-engine=xelatex \
+              -V mainfont="DejaVu Serif" \
+              -V lang=pl-PL \
+              -o RUR_Project_Book_v1_pl.pdf
+          else
+            echo "Skipping PL (no combined file)"
+          fi
 
       - name: Upload PDFs
         uses: actions/upload-artifact@v4
@@ -115,3 +116,4 @@ jobs:
           path: |
             RUR_Project_Book_v1_en.pdf
             RUR_Project_Book_v1_pl.pdf
+          if-no-files-found: ignore

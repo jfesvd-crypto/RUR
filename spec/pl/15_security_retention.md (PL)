@@ -1,0 +1,24 @@
+# Bezpieczeństwo i Retencja Danych (90 dni) — Kontrolki i Checklista
+
+### **Kontrolki Techniczne**
+* **Szyfrowanie**: Wszystkie dane **MUSZĄ** być szyfrowane zarówno w tranzycie (TLS 1.2+), jak i w spoczynku (AES-256).
+* **Kontrola Dostępu**: Zarządzanie tożsamością i dostępem (IAM) **MUSI** być wdrożone z zasadą najmniejszych uprawnień. Uwierzytelnianie wieloskładnikowe (MFA) jest obowiązkowe dla wszelkiego dostępu administracyjnego.
+* **Niezmienialne Logi**: Wszystkie logi systemowe i decyzyjne (zwłaszcza te związane z losowaniem) **MUSZĄ** być przechowywane w niezmienialnym formacie (WORM - write-once-read-many), aby zapewnić audytowalność.
+* **Zarządzanie Podatnościami**: System **MUSI** przechodzić regularne skanowanie podatności (SAST/DAST). Wszystkie zależności **MUSZĄ** być skanowane pod kątem znanych luk.
+* **Zarządzanie Sekretami**: Wszystkie sekrety (klucze API, dane dostępowe do baz danych) **MUSZĄ** być przechowywane w bezpiecznym sejfie (np. KMS, HSM) i regularnie rotowane.
+* **Backup i Odtwarzanie**: Regularne, szyfrowane kopie zapasowe **MUSZĄ** być wykonywane, a proces odtwarzania **MUSI** być okresowo testowany.
+
+### **Retencja i Usuwanie Danych**
+* **Domyślna Retencja**: Wszelkie dane osobowe umożliwiające identyfikację (PII) związane z aplikacją kandydata **MUSZĄ** być automatycznie i trwale usunięte lub w pełni zanonimizowane po upływie **90 dni** od zamknięcia procesu rekrutacyjnego.
+* **Wyjątki**: Okres retencji może być przedłużony jedynie w przypadku wymogów prawnych (legal hold) lub trwającego audytu, za wyraźną zgodą osoby, której dane dotyczą.
+
+---
+### **Checklista Bezpieczeństwa**
+- [ ] Wdrożono szyfrowanie TLS i szyfrowanie danych w spoczynku.
+- [ ] Skonfigurowano IAM z MFA i zasadą najmniejszych uprawnień.
+- [ ] Wdrożono niezmienialne logowanie i monitoring.
+- [ ] Skanowanie kodu i zależności jest częścią potoku CI/CD.
+- [ ] Sekrety są zarządzane przez bezpieczny sejf z polityką rotacji.
+- [ ] Skonfigurowano automatyczne backupy i przetestowano odtwarzanie.
+- [ ] Udokumentowano procedury reagowania na incydenty.
+- [ ] Zaplanowano regularne testy penetracyjne.

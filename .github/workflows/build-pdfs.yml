@@ -20,11 +20,13 @@ jobs:
 
       - name: Build English PDF
         run: |
-          pandoc spec/en/*.md philosophy/en/*.md -o RUR_Project_Book_v1_en.pdf --toc --pdf-engine=xelatex
+          # ZMIANA: Używamy 'find' aby jawnie znaleźć wszystkie pliki .md
+          pandoc $(find spec/en -name "*.md") $(find philosophy/en -name "*.md") -o RUR_Project_Book_v1_en.pdf --toc --pdf-engine=xelatex
 
       - name: Build Polish PDF
         run: |
-          pandoc spec/pl/*.md philosophy/pl/*.md -o RUR_Project_Book_v1_pl.pdf --toc --pdf-engine=xelatex
+          # ZMIANA: Używamy 'find' aby jawnie znaleźć wszystkie pliki .md
+          pandoc $(find spec/pl -name "*.md") $(find philosophy/pl -name "*.md") -o RUR_Project_Book_v1_pl.pdf --toc --pdf-engine=xelatex
           
       - name: Upload English PDF Artifact
         uses: actions/upload-artifact@v4

@@ -6,7 +6,7 @@
 
 <h1 align="center">RUR — Ramy Uczciwej Rekrutacji</h1>
 
-### [Przeczytaj pełny dokument (PDF)](https://ifess-krypto.github.io/RUR/RUR_Project_Book_v1.pdf) ## Przegląd (Overview)
+### [Przeczytaj pełny dokument (PDF)](https://jfesvd-crypto.github.io/RUR/RUR_Project_Book_v1_pl.pdf) ## Przegląd (Overview)
 
 **RUR (Ramy Uczciwej Rekrutacji)** to otwarty protokół, którego celem jest przywrócenie symetrii i sprawiedliwości w procesach rekrutacyjnych ery agentów AI. Adresuje problem chaosu związanego ze spamem aplikacyjnym generowanym przez AI ("Wojna Botów") oraz wrodzonej niesprawiedliwości tradycyjnej rekrutacji ("Niesprawiedliwy Teatr"). Naszym celem nie jest eliminacja performansu, ale zmiana bodźców tak, aby **opłacało się performować uczciwość**.
 
@@ -32,13 +32,13 @@ Jeśli wykorzystujesz tę pracę w swoich badaniach, prosimy o cytowanie jej w n
 
 ```bibtex
 @misc{RUR2025Framework,
-  author       = {Feszter, Janusz (ifess-krypto)},
+  author       = {Feszter, Janusz (jfesvd-crypto)},
   title        = {RUR — Ramy Uczciwej Rekrutacji: Protokół Przywracania Symetrii w Rekrutacji Ery AI},
   year         = {2025},
   publisher    = {Zenodo},
   version      = {v1.0.0},
   doi          = {10.5281/zenodo.XXXXXXX},
-  howpublished = {\url{[https://github.com/ifess-krypto/RUR](https://github.com/ifess-krypto/RUR)}}
+  howpublished = {\url{[https://github.com/jfesvd-crypto/RUR](https://github.com/jfesvd-crypto/RUR)}}
 }
 ```
 
@@ -52,4 +52,4 @@ pandoc spec/pl/*.md philosophy/pl/*.md -o RUR_Project_Book_v1_pl.pdf --toc --pdf
 
 ## Jak wnieść wkład?
 
-To jest projekt otwarty. Zapraszamy do dyskusji, krytyki i współpracy. Prosimy zacząć od lektury **[Manifestu](https://github.com/ifess-krypto/RUR/blob/main/spec/pl/01_manifest.md)** oraz **[Pełnej Specyfikacji Protokołu](https://github.com/ifess-krypto/RUR/blob/main/spec/pl/05_spec_rur_v1.md)**.
+To jest projekt otwarty. Zapraszamy do dyskusji, krytyki i współpracy. Prosimy zacząć od lektury **[Manifestu](https://github.com/jfesvd-crypto/RUR/blob/main/spec/pl/01_manifest.md)** oraz **[Pełnej Specyfikacji Protokołu](https://github.com/jfesvd-crypto/RUR/blob/main/spec/pl/05_spec_rur_v1.md)**.

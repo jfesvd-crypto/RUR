@@ -6,7 +6,7 @@
 
 <h1 align="center">RUR — A Fair Recruitment Framework</h1>
 
-### [Read the full paper (PDF)](https://ifess-krypto.github.io/RUR/RUR_Project_Book_v1.pdf) ## Overview
+### [Read the full paper (PDF)](https://jfesvd-crypto.github.io/RUR/RUR_Project_Book_v1.pdf) ## Overview
 
 **RUR (Ramy Uczciwej Rekrutacji - Fair Recruitment Framework)** is an open protocol designed to restore symmetry and fairness to the recruitment processes in the age of AI agents. It addresses the chaos of AI-driven application spam ("Bot Wars") and the inherent unfairness of traditional hiring ("Unfair Theater"). Our goal is not to eliminate performance, but to change the incentives so that **it pays to perform honesty**.
 
@@ -32,13 +32,13 @@ If you use this work in your research, please cite it as follows:
 
 ```bibtex
 @misc{RUR2025Framework,
-  author       = {Feszter, Janusz (ifess-krypto)},
+  author       = {Feszter, Janusz (jfesvd-crypto)},
   title        = {RUR — A Fair Recruitment Framework: A Protocol for Restoring Symmetry in AI-Era Recruitment},
   year         = {2025},
   publisher    = {Zenodo},
   version      = {v1.0.0},
   doi          = {10.5281/zenodo.XXXXXXX},
-  howpublished = {\url{[https://github.com/ifess-krypto/RUR](https://github.com/ifess-krypto/RUR)}}
+  howpublished = {\url{[https://github.com/jfesvd-crypto/RUR](https://github.com/jfesvd-crypto/RUR)}}
 }
 ```
 
@@ -52,4 +52,4 @@ pandoc spec/en/*.md philosophy/en/*.md -o RUR_Project_Book_v1.pdf --toc --pdf-en
 
 ## How to Contribute
 
-This is an open project. We welcome discussion, critique, and collaboration. Please start by reading the **[Manifesto](https://github.com/ifess-krypto/RUR/blob/main/spec/en/01_manifest.md)** and the **[Full Protocol Specification](https://github.com/ifess-krypto/RUR/blob/main/spec/en/05_spec_rur_v1.md)**.
+This is an open project. We welcome discussion, critique, and collaboration. Please start by reading the **[Manifesto](https://github.com/jfesvd-crypto/RUR/blob/main/spec/en/01_manifest.md)** and the **[Full Protocol Specification](https://github.com/jfesvd-crypto/RUR/blob/main/spec/en/05_spec_rur_v1.md)**.

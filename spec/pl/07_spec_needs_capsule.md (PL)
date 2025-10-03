@@ -1,0 +1,26 @@
+# Specyfikacja: Needs Capsule (Schemat i Kontrola Nadużyć)
+
+### **Definicja**
+Needs Capsule (Kapsuła Potrzeb) to obowiązkowa, ustrukturyzowana deklaracja kluczowych wymagań i preferencji kandydata dotyczących roli. Zastępuje ona otwartą i często performatywną naturę listu motywacyjnego jasnym, opartym na danych oświadczeniem intencji.
+
+### **Schemat**
+
+Kapsuła jest podzielona na dwie części:
+
+1.  **Nienegocjowalne (Wymagane)**: To twarde ograniczenia, które kandydat ustala. Oferta niespełniająca tych kryteriów jest automatycznie uznawana za niekompatybilną.
+    * **Minimalne Wynagrodzenie**: Konkretna wartość numeryczna i waluta.
+    * **Tryb Pracy**: Jasna preferencja (`Zdalny`, `Hybrydowy`, `Stacjonarny`).
+    * **Elastyczność Godzin**: Wartość logiczna (boolean) wskazująca na potrzebę elastycznych godzin pracy.
+    * **Okna Dostępności**: Określone strefy czasowe lub godziny dostępności.
+
+2.  **Preferencje (Opcjonalne)**: To "miękkie" czynniki, które wpływają na decyzję kandydata, ale nie są warunkami brzegowymi.
+    * **Mentoring**: Wartość logiczna wskazująca na preferencję dla roli z silnym wsparciem mentorskim.
+    * **Styl Komunikacji**: Preferencja dla komunikacji `asynchronicznej` lub `synchronicznej`.
+    * **Tempo Rozwoju**: Preferencja dla `szybkiej` lub `stabilnej` ścieżki rozwoju zawodowego.
+
+### **Ochrona i Kontrola Nadużyć**
+Aby zapewnić, że Kapsuła Potrzeb jest narzędziem symetrii, a nie nowym wektorem dyskryminacji, wdrożone są następujące zabezpieczenia:
+
+* **Brak Cech Chronionych**: Schemat jawnie zabrania umieszczania pól związanych z cechami chronionymi (wiek, płeć, pochodzenie etniczne itp.). System jest "ślepy" na te dane.
+* **Logowanie Decyzji do Audytu (CF-7)**: Wszystkie decyzje o odrzuceniu, skorelowane z danymi z Kapsuły Potrzeb, są logowane. Dane te są używane w audytach do wykrywania wzorców, które mogą wskazywać na dyskryminację (np. jeśli kandydaci wymagający "elastycznych godzin" są nieproporcjonalnie często odrzucani, uruchamiany jest przegląd).
+* **Minimalne i Progresywne Ujawnienie**: Pełna zawartość Kapsuły Potrzeb jest ujawniana tylko na odpowiednich etapach protokołu, co minimalizuje ekspozycję danych na wczesnym etapie.

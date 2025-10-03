@@ -1,0 +1,27 @@
+# Plan Audytu CF-6 (Metodyka)
+
+### **Cel**
+Wykrycie i reakcja na znaczącą manipulację danymi w `Org Truth Packet` dostarczonymi przez uczestniczące organizacje, zapewniając w ten sposób integralność protokołu RUR.
+
+### **Dobór Próby**
+* **Zakres**: Wybrana próbka uczestniczących organizacji zostanie poddana audytowi chroniącemu prywatność.
+* **Rozmiar**: Wielkość próby wyniesie co najmniej **20% całkowitej liczby organizacji** w pilotażu, z minimum **2 organizacjami** na kohortę.
+* **Selekcja**: Wybór będzie losowy.
+
+### **Wtórne Źródła Danych**
+Audyt będzie porównywał zadeklarowane "przedziały" (buckets) z szacunkami uzyskanymi z etycznie pozyskanych i zanonimizowanych danych wtórnych. Potencjalne źródła to:
+* Zagregowane dane o średnim czasie zatrudnienia/retencji, oszacowane na podstawie publicznych profili zawodowych (np. LinkedIn).
+* Dobrowolne dostarczenie przez organizację wewnętrznych, zanonimizowanych statystyk HR.
+* Publicznie dostępne raporty lub opinie pracowników (używane jako sygnał jakościowy).
+
+### **Metodyka**
+1.  Dla każdej organizacji w próbie, na podstawie danych wtórnych, generowany jest niezależny szacunek dla każdej z 5 metryk.
+2.  Szacunek jest porównywany z zadeklarowanym "przedziałem".
+3.  **Rozbieżność** jest flagowana, jeśli szacunek wykracza poza zadeklarowany przedział o więcej niż akceptowalny margines błędu (zdefiniowany na ±10%, aby uwzględnić szum w danych).
+4.  **Kryterium pauzy** dla CF-6 jest spełnione, jeśli znacząca rozbieżność (`>20%` odchylenia) zostanie potwierdzona w `≥1` metryce dla `>2` organizacji.
+
+### **Procedura**
+1.  Audyt jest przeprowadzany przez wyznaczoną, niezależną stronę lub podkomisję Panelu Etycznego.
+2.  Jeśli kryterium pauzy zostanie spełnione, formalny raport jest składany do pełnego składu Panelu Etycznego.
+3.  Panel Etyczny dokonuje przeglądu raportu i ma ostateczne uprawnienia do wstrzymania pilotażu.
+4.  Decyzja i podsumowanie ustaleń są publikowane w publicznym rejestrze zmian.

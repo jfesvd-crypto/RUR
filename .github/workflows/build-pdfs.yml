@@ -1,0 +1,36 @@
+name: Build Project PDFs
+
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Install Pandoc and LaTeX dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y pandoc texlive-latex-extra texlive-xetex
+
+      - name: Build English PDF
+        run: |
+          pandoc docs/en/*.md -o RUR_Project_Book_v1_en.pdf --toc --pdf-engine=xelatex
+
+      - name: Build Polish PDF
+        run: |
+          pandoc docs/pl/*.md -o RUR_Project_Book_v1_pl.pdf --toc --pdf-engine=xelatex
+          
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: RUR-Project-Books
+          path: |
+            RUR_Project_Book_v1_en.pdf
+            RUR_Project_Book_v1_pl.pdf
+            

@@ -1,0 +1,20 @@
+# Rules: Rituals of Slowness
+
+### **Definition**
+The Rituals of Slowness are a mandatory, asynchronous exchange phase that occurs after the shortlist is confirmed and the mutual veto window has closed. The goal is to replace the high-pressure, performative nature of a first screening call with a space for deliberate, thoughtful interaction.
+
+### **Rotation of Formats**
+To prevent the emergence of a single, optimizable "meta-game," the specific format of the ritual is **rotated**. For each role, the system randomly selects **2 out of a pool of 5** predefined formats. This ensures that participants must engage with the substance of the task rather than relying on pre-scripted answers.
+
+The pool of formats includes:
+1.  **3x3 Evidence Mapping**: A structured task where the candidate maps their key experiences to the role's top 3 needs.
+2.  **"Story → Signal" + Prediction**: A task involving a quiz about the `Org Truth Packet` and a reflection on where the candidate can add the most value.
+3.  **Evidence Notebook + Cool-off**: A task focused on a deep dive into a single piece of work, separating "signal" from "noise," with a mandatory reflection period.
+4.  **Micro Code-Review with Trade-offs**: A scenario-based task where the candidate reviews a piece of pseudo-code and justifies their decisions based on the `Org Truth Packet`.
+5.  **Failure → Lesson → Standard**: A reflective task where the candidate describes a past technical failure and the systemic lesson learned from it.
+
+### **Parameters**
+* **Time Window**: The exchange takes place over a fixed window (`24h` for FAST mode, `48h` for FULL mode) to allow for asynchronous responses without creating indefinite delays.
+* **Message Limit**: The exchange is strictly limited (e.g., a maximum of 3 messages/exchanges) to encourage conciseness and substance.
+* **Open Declaration of AI Assistance**: Candidates are permitted and encouraged to use AI assistance. A checkbox to declare its use is provided, and this declaration carries no penalty. The focus is on the quality of the final output, not its origin.
+* **Accessibility**: The protocol **MUST** provide equivalent alternative modalities (text, audio, video) for all rituals to ensure full accessibility.

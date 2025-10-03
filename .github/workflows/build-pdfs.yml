@@ -1,11 +1,12 @@
 name: Build Project PDFs
 on:
+  workflow_dispatch: {}
   push:
     branches: [ "main" ]
     paths:
-      - 'docs/**.md'
+      - 'spec/en/**/*.md'
+      - 'spec/pl/**/*.md'
       - '.github/workflows/build-pdfs.yml'
-  workflow_dispatch: {}
 
 jobs:
   build:
@@ -14,9 +15,14 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
         with:
-          lfs: true   # jeśli przypadkiem .md są w LFS, to je pobierze
+          lfs: true
 
-      - name: Install Pandoc and LaTeX
+      - name: Show repo structure (debug)
+        run: |
+          echo "--- md files under spec ---"
+          find spec -maxdepth 3 -iname '*.md' | sort || true
+
+      - name: Install Pandoc and TeX Live
         run: |
           sudo apt-get update
           sudo apt-get install -y \
@@ -25,53 +31,52 @@ jobs:
             texlive-latex-recommended \
             texlive-latex-extra \
             texlive-fonts-recommended \
-            texlive-lang-european
+            texlive-lang-european \
+            fonts-dejavu-core \
+            lmodern
 
-      - name: Build file lists (robust, sorted)
+      - name: Build file lists (sorted, safe)
         shell: bash
         run: |
           set -euo pipefail
-          shopt -s globstar nullglob
-
           # EN
-          find docs/en -type f -iname '*.md' -print0 | sort -zV > en.zlist || true
+          find spec/en -type f -iname '*.md' -print0 | sort -zV | tr '\0' '\n' > en-files.txt || true
           # PL
-          find docs/pl -type f -iname '*.md' -print0 | sort -zV > pl.zlist || true
+          find spec/pl -type f -iname '*.md' -print0 | sort -zV | tr '\0' '\n' > pl-files.txt || true
 
-          # Zamień NUL na newline (pandoc @file oczekuje 1 ścieżka/linia)
-          tr '\0' '\n' < en.zlist > en-files.txt || true
-          tr '\0' '\n' < pl.zlist > pl-files.txt || true
+          echo "=== EN files ==="; nl -ba en-files.txt || true
+          echo "=== PL files ==="; nl -ba pl-files.txt || true
 
-          echo "=== EN files ==="; cat -n en-files.txt || true
-          echo "=== PL files ==="; cat -n pl-files.txt || true
-
-          # Twarde błędy, jeśli pusto
           if [ ! -s en-files.txt ]; then
-            echo "ERROR: Nie znaleziono plików .md w docs/en"; exit 1
+            echo "ERROR: Nie znaleziono plików .md w spec/en"; exit 1
           fi
           if [ ! -s pl-files.txt ]; then
-            echo "ERROR: Nie znaleziono plików .md w docs/pl"; exit 1
+            echo "ERROR: Nie znaleziono plików .md w spec/pl"; exit 1
           fi
 
       - name: Build English PDF
         run: |
           pandoc -s @en-files.txt \
             --from=gfm+yaml_metadata_block \
-            --toc \
+            --toc -N \
+            --resource-path=".:spec:spec/en" \
             --pdf-engine=xelatex \
             -V lang=en-US \
+            -V mainfont="DejaVu Serif" \
             -o RUR_Project_Book_v1_en.pdf
 
       - name: Build Polish PDF
         run: |
           pandoc -s @pl-files.txt \
             --from=gfm+yaml_metadata_block \
-            --toc \
+            --toc -N \
+            --resource-path=".:spec:spec/pl" \
             --pdf-engine=xelatex \
             -V lang=pl-PL \
+            -V mainfont="DejaVu Serif" \
             -o RUR_Project_Book_v1_pl.pdf
 
-      - name: Upload Artifacts
+      - name: Upload PDFs
         uses: actions/upload-artifact@v4
         with:
           name: RUR-Project-Books

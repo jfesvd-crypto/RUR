@@ -1,0 +1,24 @@
+# Security and Data Retention (90 Days) — Controls & Checklist
+
+### **Technical Controls**
+* **Encryption**: All data **MUST** be encrypted both in transit (TLS 1.2+) and at rest (AES-256).
+* **Access Control**: Identity and Access Management (IAM) **MUST** be enforced with the principle of least privilege. Multi-Factor Authentication (MFA) is mandatory for all administrative access.
+* **Immutable Logs**: All system and decision logs (especially those related to the lottery) **MUST** be stored in an immutable, write-once-read-many (WORM) format to ensure auditability.
+* **Vulnerability Management**: The system **MUST** undergo regular vulnerability scanning (SAST/DAST). All dependencies **MUST** be scanned for known vulnerabilities.
+* **Secrets Management**: All secrets (API keys, database credentials) **MUST** be stored in a secure vault (e.g., KMS, HSM) and rotated regularly.
+* **Backup and Recovery**: Regular, encrypted backups **MUST** be performed, and the recovery process **MUST** be tested periodically.
+
+### **Data Retention and Deletion**
+* **Default Retention**: All personally identifiable information (PII) related to a candidate's application **MUST** be automatically and permanently deleted or fully anonymized after a **90-day period** following the closure of the recruitment process.
+* **Exceptions**: The retention period may be extended only in the case of a legal hold or an ongoing audit, with the explicit consent of the data subject.
+
+---
+### **Security Checklist**
+- [ ] TLS and at-rest encryption are enforced.
+- [ ] IAM with MFA and the principle of least privilege is configured.
+- [ ] Immutable logging and monitoring are in place.
+- [ ] Code and dependency scanning are part of the CI/CD pipeline.
+- [ ] Secrets are managed via a secure vault with rotation policies.
+- [ ] Automated backups are configured and recovery has been tested.
+- [ ] Incident response procedures are documented.
+- [ ] Regular penetration testing is scheduled.
